@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Movie</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Select a Movie</h1>
+  </header>
+  <section id="movie-selection">
+    <!-- ปุ่ม VSEG ที่มุมซ้ายบน -->
+     
+    <div id="vseg-btn" onclick="goBackToMovieSelection()" style="position: absolute; top: 10px; left: 10px; font-size: 24px; font-weight: bold; cursor: pointer;">
+      VSEG
+    </div>
+    <script>
+      // ฟังก์ชันไปยังหน้า Account
+      function gotoaccount() {
+        window.location.href = "account.html";  // เปลี่ยนไปยังหน้า account.html
+      }
+    </script>
+    
+    <!-- ปุ่มบัญชีที่มุมขวาบน -->
+    <div id="account-btn" onclick="gotoaccount()" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+      <img src="Piceturemovies/profile.png" alt="Account" style="width: 55px; height: 50px; border-radius: 50%;">
+    </div>
+
+    <!-- ภาพยนตร์ TEE YOD2 -->
+    <div class="movie" data-id="1">
+      <img src="Piceturemovies/TEE YOD2.jpg" alt="TEE YOD2" class="movie-img" onclick="showMovieDetails(1)">
+      <button class="select-btn" onclick="selectMovie('TEE YOD2', 'Piceturemovies/TEE YOD2.jpg')">TEE YOD2</button>
+      <div class="zoom-icon" onclick="showMovieDetails(1)">
+        <img src="Piceturemovies/search.png" alt="Zoom Icon" class="zoom-img">
+      </div>
+    </div>
+
+    <!-- Modal สำหรับแสดงรายละเอียดของภาพยนตร์ -->
+    <div id="movie-modal-1" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div id="movie-modal-details-1"></div>
+        <button class="btn" onclick="closeMovieModal(1)">Close</button>
+      </div>
+    </div>
+
+    <!-- ภาพยนตร์ VENOM -->
+    <div class="movie" data-id="2">
+      <img src="Piceturemovies/VENOM.jpg" alt="VENOM" class="movie-img" onclick="showMovieDetails(2)">
+      <button class="select-btn" onclick="selectMovie('VENOM', 'Piceturemovies/VENOM.jpg')">VENOM</button>
+      <div class="zoom-icon" onclick="showMovieDetails(2)">
+        <img src="Piceturemovies/search.png" alt="Zoom Icon" class="zoom-img">
+      </div>
+    </div>
+
+
+
+      <div class="movie"data-id="3">
+        <img src="Piceturemovies/THE LORD OF THE RINGS.jpg" alt="Movie 3" class="movie-img"onclick="showMovieDetails(3)">
+        <button class="select-btn" onclick="selectMovie('THE LORD OF THE RINGS')">THE LORD OF THE RINGS</button>
+        <div class="zoom-icon" onclick="showMovieDetails(3)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+      </div>
+      <div id="movie-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <div id="movie-modal-details">
+          </div>
+          <button class="btn" onclick="closeMovieModal()">Close</button>
+        </div>
+      </div>
+
+
+      <div class="movie"data-id="4">
+        <img src="Piceturemovies/Fast X.jpg" alt="Movie 4" class="movie-img"onclick="showMovieDetails(4)">
+        <button class="select-btn" onclick="selectMovie('Fast X')">Fast X</button>
+        <div class="zoom-icon" onclick="showMovieDetails(4)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="5">
+        <img src="Piceturemovies/Top Gun.webp" alt="Movie 5" class="movie-img"onclick="showMovieDetails(5)">
+        <button class="select-btn" onclick="selectMovie('Top Gun')">Top Gun</button>
+        <div class="zoom-icon" onclick="showMovieDetails(5)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="6">
+        <img src="Piceturemovies/Deadpool.jpg" alt="Movie 6" class="movie-img"onclick="showMovieDetails(6)">
+        <button class="select-btn" onclick="selectMovie('Deadpool')">Deadpool</button>
+        <div class="zoom-icon" onclick="showMovieDetails(6)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="7">
+        <img src="Piceturemovies/Meg 2.jpg" alt="Movie 7" class="movie-img"onclick="showMovieDetails(7)">
+        <button class="select-btn" onclick="selectMovie('Meg 2')">Meg 2</button>
+        <div class="zoom-icon" onclick="showMovieDetails(7)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="8">
+        <img src="Piceturemovies/Bad Boys for Life.jpg" alt="Movie 8" class="movie-img"onclick="showMovieDetails(8)">
+        <button class="select-btn" onclick="selectMovie('Bad Boys for Life')">Bad Boys for Life</button>
+        <div class="zoom-icon" onclick="showMovieDetails(8)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="9">
+        <img src="Piceturemovies/Kung_Fu_Panda_4_poster.jpg" alt="Movie 9" class="movie-img"onclick="showMovieDetails(9)">
+        <button class="select-btn" onclick="selectMovie('Kung Fu Panda 4')">Kung Fu Panda 4</button>
+        <div class="zoom-icon" onclick="showMovieDetails(9)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="10">
+        <img src="Piceturemovies/Joker_-_Folie_à_Deux_poster.jpg" alt="Movie 10" class="movie-img"onclick="showMovieDetails(10)">
+        <button class="select-btn" onclick="selectMovie('Joker: Folie à Deux')">Joker: Folie à Deux</button>
+        <div class="zoom-icon" onclick="showMovieDetails(10)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="11">
+        <img src="Piceturemovies/unnamed.webp" alt="Movie 11" class="movie-img"onclick="showMovieDetails(11)">
+        <button class="select-btn" onclick="selectMovie('Dune')">Dune</button>
+        <div class="zoom-icon" onclick="showMovieDetails(11)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="12">
+        <img src="Piceturemovies/The_Dark_Knight_(2008_film).jpg" alt="Movie 12" class="movie-img"onclick="showMovieDetails(12)">
+        <button class="select-btn" onclick="selectMovie('Movie 12The Dark Knight')">The Dark Knight</button>
+        <div class="zoom-icon" onclick="showMovieDetails(12)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="13">
+        <img src="Piceturemovies/unnamed (1).webp" alt="Movie 13" class="movie-img"onclick="showMovieDetails(13)">
+        <button class="select-btn" onclick="selectMovie('Titanic')">Titanic</button>
+        <div class="zoom-icon" onclick="showMovieDetails(13)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="14">
+        <img src="Piceturemovies/unnamed (2).webp" alt="Movie 14" class="movie-img"onclick="showMovieDetails(14)">
+        <button class="select-btn" onclick="selectMovie('Jaws')">Jaws</button>
+        <div class="zoom-icon" onclick="showMovieDetails(14)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="15">
+        <img src="Piceturemovies/unnamed (3).webp" alt="Movie 15" class="movie-img"onclick="showMovieDetails(15)">
+        <button class="select-btn" onclick="selectMovie('Tenet')">Tenet</button>
+        <div class="zoom-icon" onclick="showMovieDetails(15)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="16">
+        <img src="Piceturemovies/unnamed (4).webp" alt="Movie 16" class="movie-img"onclick="showMovieDetails(16)">
+        <button class="select-btn" onclick="selectMovie('Thor')">Thor</button>
+        <div class="zoom-icon" onclick="showMovieDetails(16)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="17">
+        <img src="Piceturemovies/unnamed (5).webp" alt="Movie 17" class="movie-img"onclick="showMovieDetails(17)">
+        <button class="select-btn" onclick="selectMovie('Spider Man')">Spider Man</button>
+        <div class="zoom-icon" onclick="showMovieDetails(17)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="18">
+        <img src="Piceturemovies/unnamed (6).webp" alt="Movie 18" class="movie-img"onclick="showMovieDetails(18)">
+        <button class="select-btn" onclick="selectMovie('The Medium')">The Medium</button>
+        <div class="zoom-icon" onclick="showMovieDetails(18)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="19">
+        <img src="Piceturemovies/Pee_Mak_International_Poster.jpg" alt="Movie 19" class="movie-img"onclick="showMovieDetails(19)">
+        <button class="select-btn" onclick="selectMovie('Pee Mak')">Pee Mak</button>
+        <div class="zoom-icon" onclick="showMovieDetails(19)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="20">
+        <img src="Piceturemovies/Disney_The_Lion_King_2019.jpg" alt="Movie 20" class="movie-img"onclick="showMovieDetails(20)">
+        <button class="select-btn" onclick="selectMovie('The Lion King')">The Lion King</button>
+        <div class="zoom-icon" onclick="showMovieDetails(20)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="21">
+        <img src="Piceturemovies/220px-Star-wars-force-awakens-official-poster.jpg" alt="Movie 21" class="movie-img"onclick="showMovieDetails(21)">
+        <button class="select-btn" onclick="selectMovie('Star Wars: The Force Awakens')">Star Wars: The Force Awakens</button>
+        <div class="zoom-icon" onclick="showMovieDetails(21)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="22">
+        <img src="Piceturemovies/ae88a538-b1a3-4ca9-aea1-786900d3da3a.jpg" alt="Movie 22" class="movie-img"onclick="showMovieDetails(22)">
+        <button class="select-btn" onclick="selectMovie('Love Destiny: The Movie')">Love Destiny: The Movie</button>
+        <div class="zoom-icon" onclick="showMovieDetails(22)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="23 ">
+        <img src="Piceturemovies/Avatar_(2009_film)_poster.jpg" alt="Movie 23" class="movie-img"onclick="showMovieDetails(23)">
+        <button class="select-btn" onclick="selectMovie('Avatar (2009 film)')">Avatar (2009 film)</button>
+        <div class="zoom-icon" onclick="showMovieDetails(23)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="24">
+        <img src="Piceturemovies/ee05fff0-1d86-4eea-af3a-2070b6b36720.jpg" alt="Movie 24" class="movie-img"onclick="showMovieDetails(24)">
+        <button class="select-btn" onclick="selectMovie('The Undertaker')">The Undertaker</button>
+        <div class="zoom-icon" onclick="showMovieDetails(24)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="25">
+        <img src="Piceturemovies/term3.jpg" alt="Movie 25" class="movie-img"onclick="showMovieDetails(25)">
+        <button class="select-btn" onclick="selectMovie('Haunted Universities 3')">Haunted Universities 3</button>
+        <div class="zoom-icon" onclick="showMovieDetails(25)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="26">
+        <img src="Piceturemovies/io2_payoff_squish_poster-s_29270ace.jpeg" alt="Movie 26" class="movie-img"onclick="showMovieDetails(26)">
+        <button class="select-btn" onclick="selectMovie('Inside Out 2')">Inside Out 2</button>
+        <div class="zoom-icon" onclick="showMovieDetails(26)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="27">
+        <img src="Piceturemovies/myboo.jpg" alt="Movie 27" class="movie-img"onclick="showMovieDetails(27)">
+        <button class="select-btn" onclick="selectMovie('My boo')">My boo</button>
+        <div class="zoom-icon" onclick="showMovieDetails(27)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="28">
+        <img src="Piceturemovies/Lahn Mah.jpg" alt="Movie 28" class="movie-img"onclick="showMovieDetails(28)">
+        <button class="select-btn" onclick="selectMovie('Lahn Mah')">Lahn Mah</button>
+        <div class="zoom-icon" onclick="showMovieDetails(28)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="29">
+        <img src="Piceturemovies/HOME FOR RENT.jpg" alt="Movie 29" class="movie-img"onclick="showMovieDetails(29)">
+        <button class="select-btn" onclick="selectMovie('HOME FOR RENT')">HOME FOR RENT</button>
+        <div class="zoom-icon" onclick="showMovieDetails(29)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="movie"data-id="30">
+        <img src="Piceturemovies/Hormones.jpg" alt="Movie 30" class="movie-img"onclick="showMovieDetails(30)">
+        <button class="select-btn" onclick="selectMovie('Hormones')">Hormones</button>
+        <div class="zoom-icon" onclick="showMovieDetails(30)">
+          <img src="Piceturemovies\search.png" alt="Zoom Icon" class="zoom-img">
+        </div>
+        <div id="movie-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div id="movie-modal-details">
+            </div>
+            <button class="btn" onclick="closeMovieModal()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div id="movie-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="movie-modal-details"></div>
+        </div>
+      </div>
+    </section>
+    
+    
+
+<section id="seat-selection" style="display:none;">
+    <!-- ส่วนที่แสดงที่นั่ง, สามารถมีฟังก์ชันที่ทำงานได้ -->
+  </div>
+
+
+
+  </div>
+  <div id="time-selection" style="text-align: center; margin-bottom:5px;">
+    <div class="time-btns">
+      <button class="time-btn" onclick="selectTime('10:00')">10:00</button>
+      <button class="time-btn" onclick="selectTime('13:00')">13:00</button>
+      <button class="time-btn" onclick="selectTime('16:00')">16:00</button>
+      <button class="time-btn" onclick="selectTime('19:00')">19:00</button>
+      <button class="time-btn" onclick="selectTime('22:00')">22:00</button>
+      <button class="time-btn" onclick="selectTime('01:00')">01:00</button>
+      <button class="time-btn" onclick="selectTime('03:00')">03:00</button>
+
+    </div>
+    
+  </div>
+  <div class="screen-indicator">
+    Screen
+  </div>
+  <!-- ส่วนของคำว่า VSEG ที่มุมซ้ายบน -->
+  <!-- ปุ่ม VSEG ที่มุมซ้ายบน -->
+  <div id="vseg-btn" onclick="goBackToMovieSelection()" style="position: absolute; top: 10px; left: 10px; font-size: 24px; font-weight: bold; cursor: pointer;">
+    VSEG
+  </div>
+  <!-- ปุ่มบัญชีที่มุมขวาบน เป็นแค่รูป -->
+  <!-- ปุ่มบัญชีที่มุมขวาบน เป็นแค่รูป -->
+
+  <div class="seats">
+    <!-- แถวที่ 1 -->
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">A1</button>
+      <button class="seat" onclick="selectSeat(this)">A2</button>
+      <button class="seat" onclick="selectSeat(this)">A3</button>
+      <button class="seat" onclick="selectSeat(this)">A4</button>
+      <button class="seat" onclick="selectSeat(this)">A5</button>
+      <button class="seat" onclick="selectSeat(this)">A6</button>
+      <button class="seat" onclick="selectSeat(this)">A7</button>
+      <button class="seat" onclick="selectSeat(this)">A8</button>
+      <button class="seat" onclick="selectSeat(this)">A9</button>
+      <button class="seat" onclick="selectSeat(this)">A10</button>
+      <button class="seat" onclick="selectSeat(this)">A11</button>
+      <button class="seat" onclick="selectSeat(this)">A12</button>
+      <button class="seat" onclick="selectSeat(this)">A13</button>
+      <button class="seat" onclick="selectSeat(this)">A14</button>
+      <button class="seat" onclick="selectSeat(this)">A15</button>
+      <button class="seat" onclick="selectSeat(this)">A16</button>
+      <button class="seat" onclick="selectSeat(this)">A17</button>
+      <button class="seat" onclick="selectSeat(this)">A18</button>
+      <button class="seat" onclick="selectSeat(this)">A19</button>
+      <button class="seat" onclick="selectSeat(this)">A20</button>
+
+    </div>
+    <!-- แถวที่ 2 -->
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">B1</button>
+      <button class="seat" onclick="selectSeat(this)">B2</button>
+      <button class="seat" onclick="selectSeat(this)">B3</button>
+      <button class="seat" onclick="selectSeat(this)">B4</button>
+      <button class="seat" onclick="selectSeat(this)">B5</button>
+      <button class="seat" onclick="selectSeat(this)">A6</button>
+      <button class="seat" onclick="selectSeat(this)">B7</button>
+      <button class="seat" onclick="selectSeat(this)">B8</button>
+      <button class="seat" onclick="selectSeat(this)">B9</button>
+      <button class="seat" onclick="selectSeat(this)">B10</button>
+      <button class="seat" onclick="selectSeat(this)">B11</button>
+      <button class="seat" onclick="selectSeat(this)">B12</button>
+      <button class="seat" onclick="selectSeat(this)">B13</button>
+      <button class="seat" onclick="selectSeat(this)">B14</button>
+      <button class="seat" onclick="selectSeat(this)">B15</button>
+      <button class="seat" onclick="selectSeat(this)">B16</button>
+      <button class="seat" onclick="selectSeat(this)">B17</button>
+      <button class="seat" onclick="selectSeat(this)">B18</button>
+      <button class="seat" onclick="selectSeat(this)">B19</button>
+      <button class="seat" onclick="selectSeat(this)">B20</button>
+
+    </div>
+    <!-- แถวที่ 3 -->
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">C1</button>
+      <button class="seat" onclick="selectSeat(this)">C2</button>
+      <button class="seat" onclick="selectSeat(this)">C3</button>
+      <button class="seat" onclick="selectSeat(this)">C4</button>
+      <button class="seat" onclick="selectSeat(this)">C5</button>
+      <button class="seat" onclick="selectSeat(this)">C6</button>
+      <button class="seat" onclick="selectSeat(this)">C7</button>
+      <button class="seat" onclick="selectSeat(this)">C8</button>
+      <button class="seat" onclick="selectSeat(this)">C9</button>
+      <button class="seat" onclick="selectSeat(this)">C10</button>
+      <button class="seat" onclick="selectSeat(this)">C11</button>
+      <button class="seat" onclick="selectSeat(this)">C12</button>
+      <button class="seat" onclick="selectSeat(this)">C13</button>
+      <button class="seat" onclick="selectSeat(this)">C14</button>
+      <button class="seat" onclick="selectSeat(this)">C15</button>
+      <button class="seat" onclick="selectSeat(this)">C16</button>
+      <button class="seat" onclick="selectSeat(this)">C17</button>
+      <button class="seat" onclick="selectSeat(this)">C18</button>
+      <button class="seat" onclick="selectSeat(this)">C19</button>
+      <button class="seat" onclick="selectSeat(this)">C20</button>
+
+    </div>
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">D1</button>
+      <button class="seat" onclick="selectSeat(this)">D2</button>
+      <button class="seat" onclick="selectSeat(this)">D3</button>
+      <button class="seat" onclick="selectSeat(this)">D4</button>
+      <button class="seat" onclick="selectSeat(this)">D5</button>
+      <button class="seat" onclick="selectSeat(this)">D6</button>
+      <button class="seat" onclick="selectSeat(this)">D7</button>
+      <button class="seat" onclick="selectSeat(this)">D8</button>
+      <button class="seat" onclick="selectSeat(this)">D9</button>
+      <button class="seat" onclick="selectSeat(this)">D10</button>
+      <button class="seat" onclick="selectSeat(this)">D11</button>
+      <button class="seat" onclick="selectSeat(this)">D12</button>
+      <button class="seat" onclick="selectSeat(this)">D13</button>
+      <button class="seat" onclick="selectSeat(this)">D14</button>
+      <button class="seat" onclick="selectSeat(this)">D15</button>
+      <button class="seat" onclick="selectSeat(this)">D16</button>
+      <button class="seat" onclick="selectSeat(this)">D17</button>
+      <button class="seat" onclick="selectSeat(this)">D18</button>
+      <button class="seat" onclick="selectSeat(this)">D19</button>
+      <button class="seat" onclick="selectSeat(this)">D20</button>
+
+    </div>
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">E1</button>
+      <button class="seat" onclick="selectSeat(this)">E2</button>
+      <button class="seat" onclick="selectSeat(this)">E3</button>
+      <button class="seat" onclick="selectSeat(this)">E4</button>
+      <button class="seat" onclick="selectSeat(this)">E5</button>
+      <button class="seat" onclick="selectSeat(this)">E6</button>
+      <button class="seat" onclick="selectSeat(this)">E7</button>
+      <button class="seat" onclick="selectSeat(this)">E8</button>
+      <button class="seat" onclick="selectSeat(this)">E9</button>
+      <button class="seat" onclick="selectSeat(this)">E10</button>
+      <button class="seat" onclick="selectSeat(this)">E11</button>
+      <button class="seat" onclick="selectSeat(this)">E12</button>
+      <button class="seat" onclick="selectSeat(this)">E13</button>
+      <button class="seat" onclick="selectSeat(this)">E14</button>
+      <button class="seat" onclick="selectSeat(this)">E15</button>
+      <button class="seat" onclick="selectSeat(this)">E16</button>
+      <button class="seat" onclick="selectSeat(this)">E17</button>
+      <button class="seat" onclick="selectSeat(this)">E18</button>
+      <button class="seat" onclick="selectSeat(this)">E19</button>
+      <button class="seat" onclick="selectSeat(this)">E20</button>
+
+    </div>
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">F1</button>
+      <button class="seat" onclick="selectSeat(this)">F2</button>
+      <button class="seat" onclick="selectSeat(this)">F3</button>
+      <button class="seat" onclick="selectSeat(this)">F4</button>
+      <button class="seat" onclick="selectSeat(this)">F5</button>
+      <button class="seat" onclick="selectSeat(this)">F6</button>
+      <button class="seat" onclick="selectSeat(this)">F7</button>
+      <button class="seat" onclick="selectSeat(this)">F8</button>
+      <button class="seat" onclick="selectSeat(this)">F9</button>
+      <button class="seat" onclick="selectSeat(this)">F10</button>
+      <button class="seat" onclick="selectSeat(this)">F11</button>
+      <button class="seat" onclick="selectSeat(this)">F12</button>
+      <button class="seat" onclick="selectSeat(this)">F13</button>
+      <button class="seat" onclick="selectSeat(this)">F14</button>
+      <button class="seat" onclick="selectSeat(this)">F15</button>
+      <button class="seat" onclick="selectSeat(this)">F16</button>
+      <button class="seat" onclick="selectSeat(this)">F17</button>
+      <button class="seat" onclick="selectSeat(this)">F18</button>
+      <button class="seat" onclick="selectSeat(this)">F19</button>
+      <button class="seat" onclick="selectSeat(this)">F20</button>
+
+    </div>
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">G1</button>
+      <button class="seat" onclick="selectSeat(this)">G2</button>
+      <button class="seat" onclick="selectSeat(this)">G3</button>
+      <button class="seat" onclick="selectSeat(this)">G4</button>
+      <button class="seat" onclick="selectSeat(this)">G5</button>
+      <button class="seat" onclick="selectSeat(this)">G6</button>
+      <button class="seat" onclick="selectSeat(this)">G7</button>
+      <button class="seat" onclick="selectSeat(this)">G8</button>
+      <button class="seat" onclick="selectSeat(this)">G9</button>
+      <button class="seat" onclick="selectSeat(this)">G10</button>
+      <button class="seat" onclick="selectSeat(this)">G11</button>
+      <button class="seat" onclick="selectSeat(this)">G12</button>
+      <button class="seat" onclick="selectSeat(this)">G13</button>
+      <button class="seat" onclick="selectSeat(this)">G14</button>
+      <button class="seat" onclick="selectSeat(this)">G15</button>
+      <button class="seat" onclick="selectSeat(this)">G16</button>
+      <button class="seat" onclick="selectSeat(this)">G17</button>
+      <button class="seat" onclick="selectSeat(this)">G18</button>
+      <button class="seat" onclick="selectSeat(this)">G19</button>
+      <button class="seat" onclick="selectSeat(this)">G20</button>
+
+
+    <!-- เพิ่มแถวที่นั่งตามต้องการ -->
+  </div>
+
+  <!-- ปุ่มยืนยันการจอง -->
+  <button id="confirm-btn" style="display:none;" onclick="confirmBooking()">Confirm</button>
+</section>
+
+
+
+<!-- ส่วนแสดงข้อมูลการจอง -->
+<section id="confirmation" style="display: none;">
+  <div id="booking-card" class="card">
+    <h2>Booking Information</h2>
+    
+    <img id="movie-poster" src="" alt="Movie" style="width: 15%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+    <p id="movie-name">You choose a movie: <strong></strong></p>
+    <p id="selected-time">You choose time: <strong></strong></p>
+    <p id="ticket-seats">Reserved seats: <strong></strong></p>
+    <p>Thank you for booking your tickets with us!</p>
+</div>
+    <!-- ปุ่มกลับไปที่หน้าเลือกหนัง -->
+<button id="back-to-movie-selection-btn" onclick="goBackToMovieSelection()">Back to Movie Selection</button>
+
+<style>
+
+</style>
+
+  <script>
+    function confirmBooking() {
+      window.location.href = 'confirmation.html'; // ไปยังหน้า AccountPage
+    }
+  </script>
+</section>
+
+  <script>
+    // ฟังก์ชันการแสดงหน้าจอล็อกอิน
+    function showLogin() {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-form').style.display = 'none';
+      document.getElementById('movie-selection').style.display = 'none';
+      document.getElementById('seat-selection').style.display = 'none'; // ซ่อนหน้าที่นั่ง
+      document.getElementById('confirmation').style.display = 'none'; // ซ่อนหน้าเสร็จสิ้น
+    }
+
+    // ฟังก์ชันการแสดงหน้าลงทะเบียน
+    function showRegister() {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+    }
+
+    // ฟังก์ชันการสมัครสมาชิก
+    function registerUser(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password !== confirmPassword) {
+        alert('Password Dont match');
+        return;
+      }
+
+      // เก็บข้อมูลลงใน LocalStorage (หรือเชื่อมกับฐานข้อมูลจริง)
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+
+      alert('Register Success');
+      showLogin(); // เปลี่ยนไปหน้าล็อกอิน
+    }
+
+    // ฟังก์ชันการเข้าสู่ระบบ
+    function loginUser(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      const storedUsername = localStorage.getItem('username');
+      const storedPassword = localStorage.getItem('password');
+
+      if (username === storedUsername && password === storedPassword) {
+        alert('Login successful');
+        showMovieSelection(); // เปลี่ยนไปเลือกภาพยนตร์
+      } else {
+        alert('The username or password is incorrect.');
+      }
+    }
+
+
+    // ฟังก์ชันเมื่อเข้าสู่ระบบแล้วให้แสดงหน้าเลือกภาพยนตร์
+    function showMovieSelection() {
+      document.getElementById('login-register-container').style.display = 'none'; // ซ่อนล็อกอิน/ลงทะเบียน
+      document.getElementById('movie-selection').style.display = 'block'; // แสดงหน้าเลือกภาพยนตร์
+    }
+
+    // ฟังก์ชันการเลือกภาพยนตร์
+function selectMovie(movieName, time, posterUrl) {
+  // หา selectedMovie จาก array movies
+  const selectedMovie = movies.find(movie => movie.title === movieName);
+
+  if (!selectedMovie) {
+    console.error('Movie not found');
+    return;
+  }
+  if (selectedMovie.poster) {
+    // เก็บ URL ของโปสเตอร์ใน localStorage
+    localStorage.setItem('moviePoster', selectedMovie.poster);
+  } else {
+    console.error('ไม่พบ URL ของโปสเตอร์สำหรับภาพยนตร์นี้');
+    return;
+  }
+  localStorage.setItem('moviePoster', selectedMovie.poster,posterUrl); // เก็บ URL ของโปสเตอร์
+  localStorage.setItem('selectedMovie', movieName);
+  localStorage.setItem('selectedTime', time);
+
+  // แสดงข้อความแสดงภาพยนตร์ที่เลือก
+  document.getElementById('movie-poster').src = selectedMovie.poster;
+  document.getElementById('movie-name').innerText = `คุณเลือกภาพยนตร์: ${movieName} เวลา: ${time}`;
+
+  // แสดงหน้าเลือกที่นั่ง
+  document.getElementById('seat-selection').style.display = 'block';
+  document.getElementById('movie-selection').style.display = 'none';
+  
+  // โหลดที่นั่งที่จองไว้สำหรับภาพยนตร์นี้
+  loadSeats();
+}
+
+
+
+    // ฟังก์ชันสำหรับกลับไปที่หน้าเลือกหนัง
+    function goBackToMovieSelection() {
+  console.log('VSEG clicked!'); // เพื่อทดสอบว่าไปถึงฟังก์ชันนี้หรือไม่
+
+  // ซ่อนหน้าที่ไม่เกี่ยวข้องทั้งหมด
+  document.getElementById('movie-selection').style.display = 'block'; // แสดงหน้าเลือกภาพยนตร์
+  document.getElementById('accountPopup').style.display = 'none'; // ซ่อน popup ของบัญชี
+  document.getElementById('seat-selection').style.display = 'none'; // ซ่อนหน้าเลือกที่นั่ง
+  document.getElementById('confirmation').style.display = 'none'; // ซ่อนหน้าข้อมูลการจอง
+  document.getElementById('login-register-container').style.display = 'none'; // ซ่อนหน้า login/register ถ้ามี
+
+  // ซ่อนหน้า Booking Information
+  document.getElementById('booking-info').style.display = 'none'; // ซ่อนหน้า Booking Information
+}
+
+function gotoaccount() {
+      // ตรวจสอบว่า element ที่ต้องการมีอยู่ใน DOM หรือไม่
+      const popup = document.getElementById('accountPopup');
+      
+      if (popup) {
+        popup.style.display = 'block'; // แสดง Popup
+
+        // ซ่อนหน้าต่างอื่น ๆ ที่ไม่เกี่ยวข้อง
+        document.getElementById('movie-selection').style.display = 'none'; // ซ่อนหน้าเลือกภาพยนตร์
+        document.getElementById('seat-selection').style.display = 'none'; // ซ่อนหน้าเลือกที่นั่ง
+        document.getElementById('confirmation').style.display = 'none'; // ซ่อนหน้าข้อมูลการจอง
+        document.getElementById('login-register-container').style.display = 'none'; // ซ่อนหน้า login/register
+      } else {
+        console.error('Element with id "accountPopup" not found');
+      }
+    }
+// กำหนด Event Listener เพื่อรอ DOM โหลดเสร็จ
+document.addEventListener('DOMContentLoaded', function() {
+  // ตรวจสอบว่าเมื่อ DOM โหลดเสร็จ ฟังก์ชัน gotoaccount สามารถเข้าถึง popup ได้
+  const accountBtn = document.getElementById('account-btn');
+  if (accountBtn) {
+    accountBtn.addEventListener('click', gotoaccount);
+  }
+});
+
+
+
+
+    // ฟังก์ชันการเลือกที่นั่ง
+    let selectedTime = null;
+    let selectedSeats = [];
+
+    function selectSeat(seat) {
+      const movieName = localStorage.getItem('selectedMovie'); // ดึงชื่อภาพยนตร์ที่เลือกจาก LocalStorage
+      if (!movieName) return; // ถ้าไม่มีภาพยนตร์ที่เลือก ให้ไม่ทำงาน
+
+      // ตรวจสอบสถานะที่นั่ง
+      if (seat.style.backgroundColor === 'green') {
+        seat.style.backgroundColor = ''; // ถ้าเลือกซ้ำให้ยกเลิกการเลือก
+        selectedSeats = selectedSeats.filter(s => s !== seat.innerText); // เอาที่นั่งออกจากอาร์เรย์
+      } else {
+        seat.style.backgroundColor = 'green'; // ทำให้ที่นั่งที่เลือกเป็นสีเขียว
+        selectedSeats.push(seat.innerText); // เพิ่มที่นั่งเข้าในอาร์เรย์
+      }
+
+      // บันทึกข้อมูลที่นั่งใน LocalStorage
+      const bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || {};
+      bookedSeats[movieName] = selectedSeats;
+      localStorage.setItem('bookedSeats', JSON.stringify(bookedSeats));
+
+      // ตรวจสอบว่าเลือกทั้งเวลาและที่นั่งหรือยัง
+      checkConfirmButton();
+    }
+
+    // ฟังก์ชันโหลดข้อมูลที่นั่งจาก LocalStorage
+    function loadSeats() {
+      const movieName = localStorage.getItem('selectedMovie'); // ดึงชื่อภาพยนตร์ที่เลือก
+      if (!movieName) return; // ถ้าไม่มีภาพยนตร์ที่เลือกให้ไม่ทำงาน
+
+      const bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || {};
+      const savedSeats = bookedSeats[movieName] || []; // ดึงที่นั่งที่จองไว้สำหรับภาพยนตร์นี้
+
+      selectedSeats = savedSeats; // ตั้งค่าข้อมูลที่นั่งที่เลือกจาก LocalStorage
+
+      // แสดงการเลือกที่นั่งจาก LocalStorage
+      const seats = document.querySelectorAll('.seat'); // ดึงปุ่มที่นั่งทั้งหมด
+      seats.forEach(seat => {
+        if (savedSeats.includes(seat.innerText)) {
+          seat.style.backgroundColor = 'green'; // ถ้าที่นั่งนั้นถูกเลือก ให้ทำให้สีเป็นสีเขียว
+        } else {
+          seat.style.backgroundColor = ''; // ถ้าไม่ถูกเลือก ให้สีเป็นปกติ
+        }
+      });
+    }
+    function selectTime(time) {
+      // เก็บข้อมูลเวลาใน LocalStorage
+      localStorage.setItem('selectedTime', time);
+
+      // กำหนด selectedTime เป็นค่าที่เลือก
+      selectedTime = time;
+
+      // แสดงเวลาในหน้าจอ
+      document.getElementById('selected-time').innerText = `คุณเลือกเวลา: ${time}`;
+
+      // ตรวจสอบว่าเลือกทั้งเวลาและที่นั่งหรือยัง
+      checkConfirmButton();
+    }
+    function checkConfirmButton() {
+      if (selectedTime && selectedSeats.length > 0) {
+        // หากเลือกทั้งเวลาและที่นั่งแล้ว ให้แสดงปุ่ม Confirm
+        document.getElementById('confirm-btn').style.display = 'block';
+      } else {
+        // หากยังไม่ได้เลือกทั้งเวลาและที่นั่ง จะซ่อนปุ่ม Confirm
+        document.getElementById('confirm-btn').style.display = 'none';
+      }
+    }
+    // เรียกใช้ฟังก์ชันเมื่อหน้าโหลด
+    window.onload = function() {
+      loadSeats(); // โหลดข้อมูลที่นั่งจาก LocalStorage เมื่อหน้าโหลดใหม่
+      checkConfirmButton(); // ตรวจสอบสถานะของปุ่ม Confirm
+    };
+
+
+function formatDate(date) {
+  const d = new Date(date);
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0'); // เดือนเริ่มต้นที่ 0
+  const year = d.getFullYear();
+  return `${year}-${month}-${day}`;  // รูปแบบ YYYY-MM-DD
+}
+
+    // ฟังก์ชันยืนยันการจอง
+    function confirmBooking() {
+  const movieName = localStorage.getItem('selectedMovie'); // ดึงชื่อภาพยนตร์ที่เลือก
+  const bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || {};  // ดึงที่นั่งที่จองจาก localStorage
+  const seats = bookedSeats[movieName] || [];  // ดึงที่นั่งที่เลือกสำหรับภาพยนตร์นี้
+  const selectedTime = localStorage.getItem('selectedTime'); // เวลาเลือก
+  const userId = localStorage.getItem('userId'); // ดึง userId จาก localStorage
+
+  if (!userId) {
+    alert('กรุณาล็อกอินก่อนทำการจอง');
+    return;  // ถ้าไม่มี userId, ให้หยุดการจอง
+  }
+
+  if (!movieName || seats.length === 0 || !selectedTime) {
+    alert('ไม่มีข้อมูลการจอง');
+    return;
+  }
+
+  // แปลงวันที่ให้เป็นรูปแบบที่ฐานข้อมูลคาดหวัง
+  const formattedDate = formatDate(new Date()); // ใช้วันที่ปัจจุบันหรือวันที่ที่คุณต้องการ
+
+  // ส่งข้อมูลการจองไปยัง API เพื่อบันทึกข้อมูลลงในฐานข้อมูล
+  fetch('http://localhost:3000/api/saveBooking', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      userId,  // ส่ง userId ไปด้วย
+      movieName,
+      seats: seats.join(', '),
+      time: selectedTime,
+      date: formattedDate  // ส่งวันที่ในรูปแบบ YYYY-MM-DD
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'success') {
+      console.log('Booking saved in database');
+      alert('การจองเสร็จสมบูรณ์');
+    } else {
+      console.error('Error saving booking');
+      alert('เกิดข้อผิดพลาดในการบันทึกการจอง');
+    }
+  })
+  .catch(error => console.error('Error:', error));
+
+
+  // แสดงหน้าข้อมูลการจอง
+  document.getElementById('confirmation').style.display = 'block';
+  document.getElementById('seat-selection').style.display = 'none';
+
+  // แสดงข้อมูลการจอง
+  document.getElementById('movie-name').innerText = `You Select Movies: ${movieName}`;
+  document.getElementById('ticket-seats').innerText = `Seat: ${seats.join(', ')}`;
+  document.getElementById('selected-time').innerText = `SelectedTime: ${selectedTime}`;
+
+  // ดึง URL ของโปสเตอร์จาก LocalStorage
+  const posterUrl = localStorage.getItem('moviePoster');
+
+  // แสดงโปสเตอร์ในหน้าต่างการจอง
+  const posterElement = document.getElementById('movie-poster');
+  if (posterUrl) {
+    posterElement.src = posterUrl; // ถ้ามี URL ของโปสเตอร์ให้แสดงภาพ
+  } else {
+    posterElement.src = ''; // หากไม่พบ URL ให้เป็นค่าว่าง
+  }
+
+  // โหลดประวัติการจอง
+  loadBookingHistory();
+}
+
+
+// ฟังก์ชันเพื่อแสดงประวัติการจอง
+
+
+// เรียกใช้ฟังก์ชันเพื่อโหลดประวัติการจองเมื่อหน้าโหลด
+loadBookingHistory();
+
+
+
+    const timeButtons = document.querySelectorAll('.time-btn');
+
+    timeButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // ลบคลาส .selected จากปุ่มทั้งหมด
+        timeButtons.forEach(btn => btn.classList.remove('selected'));
+
+        // เพิ่มคลาส .selected ไปยังปุ่มที่ถูกคลิก
+        this.classList.add('selected');
+      });
+    });
+
+
+  </script>
+</body>
+
+
+  <script>
+    // วางโค้ด JavaScript ที่คุณให้มาในส่วนนี้
+    let currentMovie = '';  // ชื่อภาพยนตร์ที่เลือก
+
+    // โค้ดทั้งหมดที่คุณให้มาจากคำถามก่อนหน้านี้
+    const movies = [
+      {
+        id: 1,
+        title: "TEE YOD2",
+        poster: "Piceturemovies/TEE YOD2.jpg",
+        description: "<br>3ปีหลังการตายของแย้มยักษ์ยังคงตามล่าผีชุดดําที่คร่าชีวิตน้องสาวเขาไปอย่างไม่ลดละแม้คนในครอบครัวจะพยายามเกลี้ยกล่อมให้ยักษ์เลิกตามแก้แค้นผีชุดดําเพียงใดแต่ยักษ์ยังคงดื้อดึงที่จะตามล่ามันให้ได้ด้วยกลัวว่าผีชุดดำจะกลับมาจัดการกับคนในครอบครัวที่เหลือของเขายักษ์แกะรอยข่าวการตายปริศนาของทารกแรกเกิดจากหน้าหนังสือพิมพ์จนพบเบาะแสว่าผีชุดดำถูกเลี้ยงโดยหมอผีจอมขมังเวทย์ชื่อ‘ตาพวง’ที่อพยพหนีไปกบดานใน‘ดงโขมด’ที่เต็มไปด้วยอาถรรพ์เร้นลับยักษ์ต้องเผชิญหน้ากับผีร้ายและอันตรายรอบตัวเพื่อกำจัดผีชุดดำไม่ให้มันย้อนกลับมาเล่นงานคนในครอบครัวของเขาได้อีกขณะเดียวกันหยาดกำลังจะแต่งงานกับ‘ประดิษฐ์’ทางครอบครัวกำลังเตรียมจัดงานแต่งให้ทั้งคู่โดยหวังว่ายักษ์จะกลับมาร่วมพิธีมงคลสมรสอย่างพร้อมหน้าพร้อมตาโดยที่ไม่รู้เลยว่าผีชุดดำกำลังจะกลับมาทำให้ครอบครัวของยักษ์ต้องเผชิญหน้ากับความสยองอีกครั้ง",
+        releaseDate: "2023-12-01",
+        duration: "115   ",
+        teaserUrl: "https://www.youtube.com/embed/nR_Xntr_XKo",
+
+      },
+      {
+        id: 2,
+        title: "VENOM",
+        poster: "Piceturemovies/VENOM.jpg",
+        description: "หลังจากเวน่อมได้เข้ายึดร่างของเอ็ดดี้ (ทอม ฮาร์ดี้) ในภาพยนตร์เรื่อง Venom ภาคแรก ทั้งคู่ต้องเรียนรู้การอยู่ร่วมกันอย่าง (เกือบ) สันติ และผ่านการต่อสู้กับบรรดาเหล่าร้ายในภาพยนตร์ทั้งสองภาค และในปีนี้เอง เรื่องราวไตรภาคชุดนี้ก็ดำเนินมาถึงภาคสุดท้ายใน Venom: The Last Dance…เวน่อม มหาศึกอสูรอหังการเมื่อเอ็ดดี้และเวน่อมเข้าตาจนและตกที่นั่งลำบาก ถูกตามไล่ล่าจากทหารทั้งกองทัพไม่พอยังถูกตามปลิดหัวจากบรรดาปรสิตซิมไบโอตต่างดาวตัวฉกาจ ทั้งสองจะต้องผ่านการสู้รบครั้งยิ่งใหญ่และการตัดสินใจครั้งสำคัญ ซึ่งจะนำไปสู่การปิดม่านการต่อสู้ร่วมกันอันยาวนานของเอ็ดดี้และเวน่อม",
+        releaseDate: "2023-11-10",
+        duration: "112    ",
+        teaserUrl: "https://www.youtube.com/embed/HyIyd9joTTc",
+
+      },
+      {
+        id: 3,
+        title: "THE LORD OF THE RINGS",
+        poster: "Piceturemovies/THE LORD OF THE RINGS.jpg",teaserUrl: "https://www.youtube.com/embed/prWAw1Fw6T8?&t=15s",
+        description: "ภาพยนตร์ชุดไตรภาค The Lord of the Rings กำกับโดย ปีเตอร์ แจ็คสัน เล่าเรื่องราวการผจญภัยสุดแฟนตาซีและการต่อสู้เพื่อความอยู่รอดของอารยธรรมแห่งประชากรทุกหมู่เหล่าในดินแดนมิดเดิลเอิร์ธที่โชคชะตาของพวกเขานั้นขึ้นอยู่กับแหวนวงหนึ่งซึ่งหายสาบสูญไปนานหลายศตวรรษแต่กลับมาอยู่ในมือของ โฟรโด้ แบ็กกินส์(รับบทโดย เอไลจาห์ วู้ด)ฮ็อบบิทตัวน้อยที่สืบทอดตำแหน่งผู้ถือครองแหวนมาจากบรรพบุรุษพร้อมภารกิจสำคัญที่จะชี้ชะตาของทุกคนบนโลกใบนี้ก็คือการทำลายแหวน ณ เมาท์ดูมสถานที่ที่หลอมแหวนวงสำคัญนั้นขึ้นมาเป็นครั้งแรก!เข้ายึดร่างของเอ็ดดี้(ทอม ฮาร์ดี้)ในภาพยนตร์เรื่อง Venom ภาคแรกทั้งคู่ต้องเรียนรู้การอยู่ร่วมกันอย่าง(เกือบ)สันติและผ่านการต่อสู้กับบรรดาเหล่าร้ายในภาพยนตร์ทั้งสองภาคและในปีนี้เองเรื่องราวไตรภาคชุดนี้ก็ดำเนินมาถึงภาคสุดท้ายใน Venom:The Last Dance…เวน่อมมหาศึกอสูรอหังการเมื่อเอ็ดดี้และเวน่อมเข้าตาจนและตกที่นั่งลำบากถูกตามไล่ล่าจากทหารทั้งกองทัพไม่พอยังถูกตามปลิดหัวจากบรรดาปรสิตซิมไบโอตต่างดาวตัวฉกาจทั้งสองจะต้องผ่านการสู้รบครั้งยิ่งใหญ่และการตัดสินใจครั้งสำคัญซึ่งจะนำไปสู่การปิดม่านการต่อสู้ร่วมกันอันยาวนานของเอ็ดดี้และเวน่อม",
+        releaseDate: "2023-11-10",
+        duration: "178    ",
+      },
+      {
+        id: 4,
+        title: "Fast X",
+        poster: "Piceturemovies/Fast X.jpg",teaserUrl: "https://www.youtube.com/embed/R5PK4zvFIHk?start=2",
+        description: "ดอม โทเร็ตโต และครอบครัวของเขาได้เอาชนะศัตรูที่ขวางทางพวกเขาและเธอในหลายภารกิจที่แทบจะเป็นไปไม่ได้และในตอนนี้พวกเขาและเธอเผชิญหน้ากับคู่ปรับที่อันตรายที่สุดเท่าที่พวกเขาเคยพบเจอมาเป็นภัยอันตรายที่คืบคลานออกมาจากเงามืดของอดีตในฐานะชายผู้จับเคลื่อนด้วยแรงแค้นและเป็ฯชายผู้ที่มุ่งมั่นจะทำลายครอบครัวนี้และทำลายทุกอย่างและทุกคนที่ ดอม รักไปตลอดกาล",
+        releaseDate: "2023-11-10",
+        duration: "141    ",
+      },
+      {
+        id: 5,
+        title: "Top Gun",
+        poster: "Piceturemovies/Top Gun.webp",teaserUrl: "https://www.youtube.com/embed/RHriSrhVUm8",
+        description: "หลังจากรับราชการเป็นนักบินระดับท็อปของกองทัพเรือมานานกว่า 30 ปี พีท“มาเวอริค” มิทเชลล์(ทอม ครูซ)กลับมาสู่ที่ซึ่งเหมาะสมกับเขาเขากลับมาเป็นนักบินทดสอบผู้กล้าหาญและหลีกหนีจากความก้าวหน้าทางการงานเขากลับมาฝึกหน่วยท็อปกันเพื่อปฏิบัติภารกิจพิเศษในรูปแบบที่ยังไม่เคยมีนักบินที่ยังมีชีวิตอยู่เคยเห็นมาก่อนมาเวอริคต้องเผชิญหน้ากับเรือโทแบรดลีย์ แบรดชอว์ (ไมล์ เทลเลอร์) หรือ “รูสเตอร์” ลูกชายของเรือโทนิค แบรดชอว์ หรือ “กูส” เพื่อนของเขาที่เสียชีวิตไปแล้วเขาต้องพบกับอนาคตที่ไม่แน่นอนและอดีตที่ตามหลอกหลอนมาเวอริคต้องเผชิญกับความกลัวที่ฝังลึกอยู่และปฏิบัติภารกิจให้สำเร็จซึ่งภารกิจนี้ผู้ที่ได้รับเลือกให้ร่วมบินต้องเสียสละอย่างที่สุดทอม ครูซ กลับมารับบท พีท “มาเวอริค” มิทเชล นักบินขับไล่ของกองทัพอากาศสหรัฐฯภาพยนตร์กำกับโดย โจเซฟ โคซินสกี อำนวยการสร้างโดย เจอร์รี่ บรักไฮเมอร์ และเดวิน เอลลิสัน ร่วมบริหารงานสร้างโดย ทอมมี่ ฮาร์เปอร์,แชด โอมาน,ไมค์ สเตนสัน,ดานา โกลด์เบิร์ก และ ดอน แกรนเจอร์ นอกเหนือจาก ทอม ครูซ แล้ว Top Gun: Maverickท็อปกัน:มาเวอริค ยังได้ ไมลส์ เทลเลอร์,เจนนิเฟอร์ คอนเนลลี,จอน แฮมม์,เกลน พาวเวลล์,ลูอิส พูลแมน และเอ็ด แฮร์ริส ร่วมเสริมทีมนักแสดง",
+        releaseDate: "2023-11-10",
+        duration: "110    ",
+      },
+      {
+        id: 6,
+        title: "Deadpool",
+        poster: "Piceturemovies/Deadpool.jpg",teaserUrl: "https://www.youtube.com/embed/pn6efRt8AxU",
+        description: "Deadpool สร้างขึ้นจากแอนตี้-ฮีโร่แนวใหม่ของ Marvel Comics ที่จะมาถ่ายทอดเรื่องราวที่มาที่ไปของอดีตเจ้าหน้าที่หน่วยเฉพาะกิจที่ผันตัวเองเป็นทหารรับจ้าง เวด วิลสัน เขาต้องผ่านการทดลองลับทำให้เขามีพลังสมานแผลได้อย่างรวดเร็วและได้แปลงร่างเป็นเดดพูลถูกหล่อหลอมด้วยคุณสมบัติใหม่และดูลึกลับเปลี่ยนไปจากคนที่เคยอารมณ์ดีเดดพูลจึงออกล่าตามหาคนที่เกือบจะทำลายชีวิตของเขาไป",
+        releaseDate: "2023-11-10",
+        duration: "108    ",
+      },
+      {
+        id: 7,
+        title: "Meg 2",
+         poster: "Piceturemovies/Meg 2.jpg",teaserUrl: "https://www.youtube.com/embed/biM8zeJXu8w",
+        description: "โจนัส เทย์เลอร์ เขากำลังทำการวิจัยลูกฉลามเมกาโลดอนที่ถูกนำมากักไว้เพื่อวิจัยในขณะที่ทีมวิจัยคนอื่นกลับออกไปสำรวจร่องมหาสมุทรมาเรียนน่าซึ่งเป็นที่ที่พวกเขาพบกับเมกาโลดอนเป็นครั้งแรกที่นั่นทีมวิจัยสำรวจพบกับสิ่งมีชีวิตดึกดำบรรพ์อีกตัวหนึ่งคือโครโนซอรัสสัตว์เลื้อยคลานในทะเลขนาดใหญ่ที่วิวัฒนาการมาเพื่อล่าสัตว์ซึ่งมันอาศัยอยู่ในร่องน้ำมรณะแห่งนี้ทีมวิจัยและโจนัสจะต้องเผชิญหน้ากับสัตว์ดึกดำบรรพ์ตัวโหดตัวใหม่รวมถึงการกลับมาของเมกาโลดอนด้วย",
+        releaseDate: "2023-11-10",
+        duration: "Meg 2   ",
+      },
+      {
+        id: 8,
+        title: "Bad Boys for Life",poster: "Piceturemovies/Bad Boys for Life.jpg",teaserUrl: "https://www.youtube.com/embed/6ZSN5InY8GI",
+        description: "ทางโซนี่เพิ่งจะปล่อยกำหนดการเข้าฉายของภาพยนตร์ Bad Boys 4(2024)ที่จะเป็นการกลับมาของคู่หูขวางนรก วิลล์ สมิธ และ มาร์ติน ลอว์เรนซ์ ในเดือนมิถุนายนปี2024โดยหลังจากที่นายตำรวจไมค์ เลาว์รี่ และ มาร์คัส เบอร์เน็ตต์ ปรากฏตัวครั้งล่าสุดในภาพยนตร์ Bad Boys for Life (2020)หรือคู่หูขวางนรกตลอดกาลทั้งสองก็ห่างหายจากจอเงินไปกว่าสี่ปีก่อนที่จะกลับมาในภาพยนตร์เรื่องนี้",
+        releaseDate: "2023-11-10",
+        duration: "124    ",
+      },
+      {
+        id: 9,
+        title: "Kung Fu Panda 4",poster: "Piceturemovies/Kung_Fu_Panda_4_poster.jpg",teaserUrl: "https://www.youtube.com/embed/0o-F16mNs20",
+        description: "เรื่องราวของ โป ที่เดินทางออกจากหมู่บ้านสันติไปยังเมืองใหญ่ที่ซึ่งตัวตนอันชั่วร้ายที่คาดไม่ถึงกำลังเฝ้ารอเขาอยู่มันก็คือวายร้ายคนใหม่ที่มีชื่อว่า เดอะ คาเมเลี่ยน นั่นเอง โดยคู่ปรับคนใหม่ของนักรบมังกรจะไม่ใช่คนที่เขาต่อสู้แบบเล่นๆอย่างแต่ก่อนได้อีกต่อไปแล้วเพราะว่าความอันตรายของศัตรูคนนี้คือความสามารถที่จะเรียกเอาเหล่าศัตรูในอดีตของ โป กลับมาได้",
+        releaseDate: "2023-11-10",
+        duration: "94    ",
+      },
+      {
+        id: 10,
+        title: "Joker: Folie à Deux",poster: "Piceturemovies/Joker_-_Folie_à_Deux_poster.jpg",teaserUrl: "https://www.youtube.com/embed/VyJveG1WrWU",
+        description: "อาเทอร์ เฟล็ก นักแสดงตลกผู้ล้มเหลวในชีวิตได้พบหญิงผู้เป็นรักแท้ของเขาอย่าง ฮาร์ลีย์ ควินน์ ในขณะที่ถูกควบคุมตัวอยู่ที่โรงพยาบาลสำหรับผู้ป่วยทางจิตประจำเมืองอาร์คแฮมและเมื่อถูกปล่อยตัวออกมาทั้งสองก็ได้ร่วมเดินทางในการผจญภัยแสนโรแมนติกที่มาพร้อมกับความพังพินาศ",
+        releaseDate: "2023-11-10",
+        duration: "138    ",
+      },
+      {
+        id: 11,
+        title: "Dune",poster: "Piceturemovies/unnamed.webp",teaserUrl: "https://www.youtube.com/embed/VUITp7G_-p4",
+        description: "ตำนานการผจญภัยยังคงดำเนินต่อเมื่อผู้สร้างภาพยนตร์เจ้าของรางวัล เดนิส วิลเนิฟ ร่วมงานในเรื่อง “Dune: Part Two” ผลงานภาคต่อจากนิยายเรื่องดังของแฟรงค์ เฮอร์เบิร์ท Dune พร้อมด้วยทีมนักแสดงจากทั่วโลกผลงานภาพยนตร์จากวอร์เนอร์ บราเดอร์ส พิกเจอร์ส และ เลเจนดารี่ พิกเจอร์ส เป็นที่คาดหวังอย่างสูงจากผลงานภาพยนตร์เรื่อง“Dune”ปี2021ที่ได้รับรางวัลAcademy Awardถึง 6 รางวัล",
+        releaseDate: "2023-11-10",
+        duration: "115   ",
+      },
+      {
+        id: 12,
+        title: "Movie 12The Dark Knight",poster: "Piceturemovies/The_Dark_Knight_(2008_film).jpg",teaserUrl: "https://www.youtube.com/embed/EXeTwQWrcwY",
+        description: "แบทแมน อัศวินรัตติกาลจะเป็นการเผชิญหน้ากันของแบทแมนและโจ๊กเกอร์อาชญากรสมองใสที่ทำให้ชาวเมืองก๊อธแธมต้องหวาดกลัว นอกจากนั้นยังมีเนื้อหาเกี่ยวกับความเป็นฮีโร่ของแบทแมนซึ่งมีเนื้อหาที่ซับซ้อนและผสมดราม่าไว้มากทำให้ได้รับคำวิจารณ์ที่ดีจากหลายสำนักภาพยนตร์เรื่องนี้ยังเป็นผลงานการแสดงภาพยนตร์ฟอร์มยักษ์ครั้งสุดท้ายของ ฮีธ เลดเจอร์ ผู้รับบทเป็นโจ๊กเกอร์ซึ่งเสียชีวิตก่อนที่ภาพยนตร์จะออกฉาย",
+        releaseDate: "2023-11-10",
+        duration: "152    ",
+      },
+      {
+        id: 13,
+        title: "Titanic",poster: "Piceturemovies/unnamed (1).webp",teaserUrl: "https://www.youtube.com/embed/LuPB43YSgCs",
+        description: "ไม่มีสิ่งใดในโลกที่จะยิ่งใหญ่ตื่นตาและสง่างามเท่าความอลังการของอภิมหากาพย์นามไททานิคได้ด้วยการเป็นเจ้าของ 11 รางวัลออสการ์รวมถึงภาพยนตร์ยอดเยี่ยมบอกเล่าความรักยิ่งใหญ่ที่จับหัวใจผู้ชมทั่วโลกนี่คือสุดยอดภาพยนตร์ที่ประสบความสำเร็จสูงสุด สร้างปรากฎการณ์ใหม่แห่งประวัติศาสตร์พบ ลีโอนาร์โด ดาราหนุ่มขวัญใจคนทั่วโลกและ เคท วินสเล็ด นักแสดงสาวผู้ได้รับการเสนอชื่อเข้าชิงรางวัลออสการ์ร่วมสร้างพลังรักยิ่งใหญ่บนแผ่นฟิล์มในบทแจ๊คกับโรสคู่รักหนุ่มสาวผู้ค้นพบกันและกันในการเดินทางเที่ยวแรกของสวรรค์ที่ไม่มีวันจม นามอาร์.เอ็ม.เอส. ไททานิคแต่เมื่อเรือสำราญมหึมาลำนี้พุ่งชนภูเขาน้ำแข็งบริเวณขั้วโลกเหนืออันหนาวเหน็บการต่อสู้เพื่อรักจึงกลายเป็นการต่อสู้เพื่อรอดชีวิตผลงานของเจมส์ คาเมรอน ผู้กำกับชื่อดังที่สามารถพิชิตรางวัลออสการ์มาครองได้จากเรื่องนี้สานเรื่องราวรักต่างวรรณะกับหายนะครั้งใหญ่แห่งประวัติศาสตร์ไว้ด้วยกันกลายเป็นงานชิ้นเอกเรื่องหนึ่งของโลกภาพยนตร์ที่ทุกคนต่างประทับใจไม่รู้คลายติดตามเรื่องราวความรักอันยิ่งใหญ่ที่เคยสร้างความประทับใจของคุณมาแล้วและอีกครั้งกับระบบสามมิติที่จะมาสร้างความอลังการให้คุณประทับใจกันอีกครั้งใน Titanic",
+        releaseDate: "2023-11-10",
+        duration: "195    ",
+      },
+      {
+        id: 14,
+        title: "Jaws",poster: "Piceturemovies/unnamed (2).webp",teaserUrl: "https://www.youtube.com/embed/U1fu_sA7XhE",
+        description: "Bruce ชื่อเล่นของหนึ่งในหุ่นฉลามยักษ์ดั้งเดิมที่เคยใช้เป็นตัวละครหลักสำคัญในหนังฉลามยักษ์ระทึกขวัญขึ้นหิ้งของผู้กำกับ Steven Spielberg เรื่อง Jaws ได้ถูกทีมงานจาก KNB EFX, Greg Nicotero และ ทีมสถาบันการศึกษาพิพิธภัณฑ์ภาพเคลื่อนไหว รวมใจกันบูรณะมันขึ้นมาใหม่ ปลุกมันให้ฟื้นขึ้นมาจากการกลายเป็นตำนานเก่าแก่คร่ำครึอีกครั้ง!",
+        releaseDate: "2023-11-10",
+        duration: "124    ",
+      },
+      {
+        id: 15,
+        title: "Tenet",poster: "Piceturemovies/unnamed (3).webp",teaserUrl: "https://www.youtube.com/embed/vqaofRnv2Gc",
+        description: "หลายคนคงได้เห็นคำอธิบายแกมๆคำขู่กันมาแล้วมากมายสำหรับภาพยนตร์เรื่อง TENET ว่าเป็นภาพยนตร์ที่ต้องใช้สติในการจดจ่อกับเนื้อหาเพื่อทำความเข้าใจทฤษฎีการย้อนกลับของเวลาหรือ Time Inversion ที่เป็นแก่นเรื่องหลักของภาพยนตร์ซึ่งไอ้ทฤษฎีที่ว่าเนี่ยเป็นทฤษฎีในสาขาฟิสิกส์ขั้นสูงที่คนทั่วไปน้อยคนนักที่จะสามารถทำความเข้าใจได้อย่างถ่องแท้เพราะฉะนั้นการตะบี้ตะบันอยากทำความเข้าใจมันทั้งหมดในเวลาแค่ประมาณ 2 ชั่วโมงครึ่งมันจึงไม่มีทางเป็นไปได้แต่ถึงอย่างนั้นก็ใช่ว่าเราจะดูหนังเรื่องนี้ไม่สนุก",
+        releaseDate: "2023-11-10",
+        duration: "150    ",
+      },
+      {
+        id: 16,
+        title: "Thor",poster: "Piceturemovies/unnamed (4).webp",teaserUrl: "https://www.youtube.com/embed/yB7JeJvp4aQ",
+        description: "ธอร์ (คริส เฮมส์เวิร์ธ)จะได้ไปผจญภัยในแบบที่ไม่เหมือนครั้งไหนที่เขาเคยเจอมาก่อนภารกิจในการค้นหาความสงบสุขภายในแต่การเกษียณของเขาถูกรบกวนโดยนักฆ่าข้ามจักรวาลนามว่า กอร์ นักเชือดเทพเจ้า(คริสเตียน เบล)ผู้แสวงหาการสูญพันธ์ของเทพเจ้าทั้งมวลเพื่อต่อสู้กับภัยคุกคามนี้ธอร์ควานหาความช่วยเหลือจาก ราชาวัลคีรี่ (เทซซ่า ทอมป์สัน),คอร์ก (ไทก้า ไวตีติ)และแฟนเก่าของเขา เจน ฟอสเตอร์(นาตาลี พอร์ตแมน)ผู้ที่ทำให้ธอร์ตกใจจนตาค้างเมื่อเธอกำลังถือครองค้อนโยเนียร์ของเขาในฐานะของ The Mighty Thorพวกเขาต้องร่วมมือกันผจญภัยข้ามจักรวาลไปเพื่อค้นหาความลับเบื้องหลังความแค้นของนักเชือดเทพเจ้าคนนี้เพื่อหยุดยั้งเขาเอาไว้ก่อนที่มันจะสายจนเกินไป",
+        releaseDate: "2023-11-10",
+        duration: "115   ",
+      },
+      {
+        id: 17,
+        title: "Spider Man",poster: "Piceturemovies/unnamed (5).webp",teaserUrl: "https://www.youtube.com/embed/1aJXdXYiLBM",
+        description: "หลังจากได้กลับมาเจอกับ“เกว็น สเตซี่”สไปเดอร์-แมนเพื่อนบ้านที่แสนดีได้ถูกโยนเข้าไปสู่มัลติเวิร์สใหม่ของเหล่าแมงมุมที่ทำให้ไมล์สได้พบกับสไปเดอร์คนอื่นๆแต่แล้วความขัดแย้งก็เกิดขึ้นเพราะความเห็นต่างของเหล่าสไปเดอร์ไมลส์จึงถูกกดดันให้ต้องต่อสู้กับสไปเดอร์คนอื่นๆเพื่อเจตนารมณ์ของการเป็นซูเปอร์ฮีโร่ที่แท้จริงและปกป้องคนที่เขารัก…และนี่คือศึกสไปเดอร์-วอร์ที่ยิ่งใหญ่ที่สุดในจักรวาลที่ไร้การคาดเดาของสไปเดอร์-แมน",
+        releaseDate: "2023-11-10",
+        duration: "133   ",
+      },
+      {
+        id: 18,
+        title: "The Medium",poster: "Piceturemovies/unnamed (6).webp",teaserUrl: "https://www.youtube.com/embed/XStLMJu0fI4",
+        description: "เปิดตัวภาพยนตร์สยองขวัญจาก SHOWBOX, NORTHERN CROSS และ GDH กับเรื่องราวการสืบทอดทายาทร่างทรงของครอบครัวหนึ่งในภาคอีสานของไทยที่พร้อมเขย่าขวัญคนทั้งโลก!",
+        releaseDate: "2023-11-10",
+        duration: "131   ",
+      },
+      {
+        id: 19,
+        title: "Pee Mak",poster: "Piceturemovies/Pee_Mak_International_Poster.jpg",teaserUrl: "https://www.youtube.com/embed/B9xbj_UK1pc",
+        description: "ในสมัยกรุงรัตนโกสินทร์ตอนต้นเกิดสงครามจนทำให้ชาวบ้านจำนวนมากต้องถูกเกณฑ์ไปรบ“พี่มาก”จำต้องทิ้งเมียของเขาที่กำลังท้องแก่ไว้ที่บ้านเพื่อเข้าร่วมศึกระหว่างสงครามมากได้พบและช่วยชีวิตเพื่อนทหารเกณฑ์สี่คนคือ เต๋อ เผือก ชิน และเอ จนท้ายที่สุดทั้งห้าก็กลายมาเป็นเพื่อนสนิทกันเมื่อสงครามยุติมากจึงชวนให้ทั้งสี่ไปเยี่ยมบ้านของเขาที่พระโขนงเมื่อถึงพระโขนงมากแนะนำให้ เต๋อ เผือก ชิน และเอ รู้จักกับ “นางนาก” เมียสาวแสนสวยของเขาและยังมี “แดง”ลูกชายวัยแรกเกิดของมากด้วย เต๋อ เผือก ชิน และเอตัดสินใจอยู่ที่พระโขนงสักระยะโดยอาศัยที่บ้านหลังเก่าฝั่งตรงข้ามบ้านมากขณะนั้นมีข่าวลือหนาหูในหมู่ชาวบ้านว่านากเป็นผีตายทั้งกลม!โดยต้นตอมาจากยายเปรียกเจ้าของร้านยาดองปั่นทั้งสี่ไม่เชื่อจึงพยายามพิสูจน์ด้วยวิธีการต่างๆต่อมายายเปรียกผู้ปล่อยข่าวลือเกิดจมน้ำตายลอยขึ้นอืดอย่างน่าสยดสยองทำให้เต๋อ เผือก ชิน และเอปักใจเชื่อว่านากเป็นผีแน่ๆทั้งสี่ไม่กล้าบอกมากตรงๆเนื่องจากกลัวจะต้องพบจุดจบแบบเดียวกับยายเปรียกแต่เมื่อนึกถึงบุญคุณที่มากเคยช่วยชีวิตพวกเขาจึงต้องตัดสินใจบอกความจริงให้มากรู้“เพราะคนกับผีอยู่ร่วมกันไม่ได้”",
+        releaseDate: "2023-11-10",
+        duration: "115   ",
+      },
+      {
+        id: 20,
+        title: "The Lion King",poster: "Piceturemovies/Disney_The_Lion_King_2019.jpg",teaserUrl: "https://www.youtube.com/embed/U5Ilh6TVgZk",
+        description: "เมื่อ ราฟิกิ ได้รับคำร้องให้เขาช่วยเหลือในการส่งต่อตำนานของ มูฟาซา ไปสู่ลูกสิงตัวน้อยนาม เคียร่า ลูกสาวของ ซิมบ้า และ นาลา ร่วมด้วย ทีโมน และ พุมบ้า ที่เข้ามาให้ความช่วยเหลือภาพยนตร์เรื่องนี้จะนำเสนอเรื่องราวในอดีตของ มูฟาซา ที่เป็นลูกสิงโตกำพร้าหลงทางและโดดเดี่ยวจนกระทั่งเขาได้พบกับสิงโตนาม ทาก้า ผู้สืบทอดเลือดเนื้อเชื้อไขแห่งราชวงศ์ การพบกันของทั้งคู่นำไปสู่การผจญภัยที่ไม่เหมือนใครนำไปสู่การทดสอบสายสัมพันธ์ระหว่างทั้งคู่",
+        releaseDate: "2023-11-10",
+        duration: "88   ",
+      },
+      {
+        id: 21,
+        title: "Star Wars: The Force Awakens",poster: "Piceturemovies/220px-Star-wars-force-awakens-official-poster.jpg",teaserUrl: "https://www.youtube.com/embed/Ah63cQxElWY",
+        description: "หากเอ่ยถึงประโยคนี้ I am your father เชื่อว่าเหล่าสาวก สตาร์ วอร์ส เป็นอันต้องรู้ ามันมาจากภาพยนตร์เรื่องอะไรเมื่อปลายปี 2014 ที่ผ่านมาหลายท่านคงได้รับชมภาพยนตร์ตัวอย่างของ Star Wars: Episode VII - The Force Awakens  กับการกลับมาครั้งใหม่ของ สงครามจักรวาลโดยในภาคนี้จะได้นักแสดงจาก Star Wars  VI: Return of the Jedi กลับมารับบทเดิมจากภาคก่อนๆโดยในภาคนี้หรือStar Wars: Episode VII - The Force Awakens จะดำเนินเรื่องในช่วงเวลาประมาณ 30 ปีหลังจากเหตุการณ์ใน Return of the Jedi ไม่ว่าจะเป็น  ฮัน โซโล(แฮร์ริสัน ฟอร์ด),เจ้าหญิงเลอา(แคร์รี่ ฟิชเชอร์),และลุค สายวอล์คเกอร์ (มาร์ค ฮามิลล์)ที่หลายๆคนรู้จักกันดีก็กลับมาแสดงในภาคนี้คงต้องอดใจรอกันอีกนิดนะครับขนาดเรื่องย่อก็ย่อเสียสั้นจริงๆเลยซึ่งกำกับการแสดงโดย เจ.เจ.เอบรัมส์",
+        releaseDate: "2023-11-10",
+        duration: "138   ",
+      },
+      {
+        id: 22,
+        title: "Love Destiny: The Movie",poster: "Piceturemovies/ae88a538-b1a3-4ca9-aea1-786900d3da3a.jpg",teaserUrl: "https://www.youtube.com/embed/ShD0CvB9kWM",
+        description: "หลังจากครองรักกันอย่างหวานชื่นจนตายจากเมื่อครั้งสมัยอยุธยาพี่หมื่นและแม่หญิงการะเกดก็ได้กลับมาเกิดใหม่ในสมัยรัตนโกสินทร์ตอนต้นแต่กลับมีเพียงคนเดียวที่ยังเชื่อในเรื่องบุพเพสันนิวาส...'ภพ'(โป๊ป ธนวรรธน์)นายช่างหนุ่มผู้มีรอยยิ้มหวานที่สุดในสยามประเทศฝันถึงหญิงสาวคนหนึ่งมานานหลายปีจนเขาเชื่อหมดใจว่าเธอคือคู่บุพเพสันนิวาสและเมื่อเขาได้พบกับ'เกสร'(เบลล่า ราณี)ผู้หญิงที่หน้าเหมือนสาวในฝันของเขาเด๊ะๆภพจึงตามจีบเธออย่างไม่ลังเลแต่ติดตรงที่เกสรเป็นผู้หญิงหัวก้าวหน้าเพราะได้รับการศึกษาจากบาทหลวงฝรั่งเธอจึงไม่เชื่อเรื่องบุพเพสันนิวาสแถมยังไม่ชอบขี้หน้าภพเลยซักนิดเพราะตอนนี้เธอกำลังสนใจ'เมธัส'(ไอซ์ พาริส)ชายหนุ่มหน้าฝรั่งที่ชอบใช้คำพูดแปลกผิดยุคแต่ดันไปพ้องกับข้อความในสมุดบันทึกโบราณของคุณหญิงการะเกดที่เพิ่งถูกค้นพบหรือเมธัสจะเดินทางย้อนเวลามาจากอนาคตเช่นเดียวกับคุณหญิงการะเกด!เรื่องรักยังไม่คลี่คลายก็ดันมีเรื่องวุ่นวายให้ภพเกสรและเมธัสต้องเข้าไปพัวพันกับเหตุการณ์ทางประวัติศาสตร์ของชาติบ้านเมืองในยุคที่บุคคลสำคัญหลายท่านยังมีชีวิตโลดแล่นอยู่ไม่ว่าจะเป็นสุนทรภู่กวีเอกของโลก,หมอบรัดเลย์บิดาแห่งการพิมพ์,บาทหลวงปาลเลอกัวซ์ผู้นำกล้องถ่ายรูปเข้ามาในประเทศเป็นคนแรกและนายห้างหันแตรเจ้าของห้างสรรพสินค้าแห่งแรกของไทยและยังเป็นผู้นำเรือกลไฟ“เอ็กสเปรส” มาเสนอขายแก่สยามจนนำมาซึ่งเรื่องลุกลามบานปลายที่อาจทำให้ประวัติศาสตร์เกิดการเปลี่ยนแปลงภพและเกสรจะรักษาประวัติศาสตร์ให้เป็นเช่นเดิมได้หรือไม่ความรักของทั้งคู่จะลงเอยเช่นไรบุพเพสันนิวาสจะนำพาพวกเขาไปพบเจอสิ่งใดกัน...",
+        releaseDate: "2023-11-10",
+        duration: "166  ",
+      },
+      {
+        id: 23,
+        title: "Avatar (2009 film)",poster: "Piceturemovies/Avatar_(2009_film)_poster.jpg",teaserUrl: "https://www.youtube.com/embed/SkTw62z6qVQ",
+        description: "เจค ซัลลี่ นาวิกโยธินที่พิการเป็นอัมพาตครึ่งตัวล่างและต้องนั่งวิลล์แชร์ตลอดเขาได้รับมอบหมายภารกิจซึ่งมีชื่อว่าAvatarเพื่อสำรวจบรรยากาศของดาวเคราะห์ที่ชื่อแพนดอรานักวิทยาศาสตร์ได้ใช้ร่างกายของชาวนาวีมนุษย์ตัวสีฟ้าดวงตาสีเหลืองร่างกายสูงใหญ่กว่ามนุษย์มาตัดต่อพันธุกรรมร่วมกับมนุษย์จนสามารถควบคุมร่างกายของนาวีได้โดยการใช้พันธุกรรมที่ตรงกับมนุษย์เรียกว่า“อวตาร”และเจคเขาต้องแฝงตัวเข้าไปบนดาวเคราะห์ แพนดอร่า ซึ่งมีชาวนาวีอาศัยอยู่โดยที่เจคต้องเข้าไปเรียนรู้ทุกอย่างเกี่ยวกับชาวนาวีและเกลี่ยกล่อมให้พวกเขาออกจากพื้นที่ไปเพื่อผลประโยชน์ส่วนตัวของใครบางคนและเจคต้องเชื่อมต่อกับร่างอวตารตัวสีฟ้าเขาแฝงตัวเข้าไปในพื้นที่ที่สวยงามในป่าเขียวขจีและสวยงามยิ่งขึ้นในเวลากลางคืนและได้รู้จักกับ เนย์ทีรี ด้วยเอฟเฟคตระการตาสีสันสวยงามแต่ป่าแพนดอร่านอกจากจะสวยงามแล้วยังแฝงด้วยอันตรายๆในเรื่องเจคได้ทำความรู้จักกับป่าไปพร้อมๆกับสร้างความสัมพันธ์กับเนย์ทีรีลูกสาวผู้นำเผ่าอีกด้วยจนเกิดเป็นความรักขึ้นมา",
+        releaseDate: "2023-11-10",
+        duration: "162  ",
+      },
+      {
+        id: 24,
+        title: "The Undertaker",poster: "Piceturemovies/ee05fff0-1d86-4eea-af3a-2070b6b36720.jpg",teaserUrl: "https://www.youtube.com/embed/1EK9K3s1_2A",
+        description: "เรื่องราวเกิดขึ้นในหมู่บ้านโนนคูณเล่าถึงชีวิตของ เจิด หนุ่มวัย 25 ปีที่เรียนจบกฎหมายหวังจะสอบเป็นทนายหรือปลัดอำเภอแต่ต้องกลับมาช่วยพ่อที่ป่วยและทำอาชีพสัปเหร่อแม้ว่าเจิดจะกลัวผีมากก็ตามในขณะเดียวกันเซียงชายหนุ่มที่อกหักจากการสูญเสียแฟนเก่า ใบข้าว พยายามหาวิธีพบเธอในโลกหลังความตายโดยศึกษาทฤษฎีต่างๆและปรึกษาพ่อของเจิดเกี่ยวกับพิธีถอดจิตซึ่งสามารถพบคนที่ตายไปแล้วได้พ่อของเจิดยื่นข้อเสนอให้เซียงมาช่วยเจิดทำงานสัปเหร่อเพื่อแลกกับการทำพิธีดังกล่าวทั้งสองต้องเรียนรู้และเข้าใจธรรมชาติของความสูญเสียและการปล่อยวาง",
+        releaseDate: "2023-11-10",
+        duration: "125 ",
+      },
+      {
+        id: 25,
+        title: "Haunted Universities 3",poster: "Piceturemovies/term3.jpg",teaserUrl: "https://www.youtube.com/embed/3BETYCL46Mg",
+        description: "ในคืนงานลูกทุ่งฮาโลวีนของคณะศิลปกรรมเมื่อ“วาฬ”(มาร์ช จุฑาวุฒิ)หนุ่มสุดป่วนดันทะลึ่งไปหยิบพวงมาลัยจากศาลประหลาดเพื่อมาคล้องคอเป็นกำลังใจให้เพื่อนสนิทอย่าง“มินท์”(แพรวา ณิชาภัทร)บนเวทีประกวดร้องเพลงจนพวกเขาโดนผีศาลหลอกหลอนไปตามๆกันทั้งคู่จึงต้องขอขมาศาลเพื่อให้ผีเลิกตามรังควานแต่ศาลนี้ก็ดันหนีหายไปเรื่อ ซ้ำร้ายเมื่อทั้งคู่ล่วงรู้ความจริงตามตำนานว่าศาลนั้นเป็นศาลผีที่ไม่มีอยู่จริงพวกเขาก็มองไม่เห็นศาลต้นนั้นอีกเลยร้อนถึงหนุ่มเนิร์ดผู้โดดเดี่ยวอย่าง“ฮาเลย์”(มาร์ค ศิวัช)ที่ต้องเข้ามาช่วยอย่างไม่รู้อีโหน่อีเหน่ซึ่งมินท์กับวาฬก็ต้องพยายามหลอกล่อทุกวิถีทางเพื่อไม่ให้ฮาเลย์รู้ความจริงเรื่องนี้เด็ดขาดการผจญภัยตามล่าหา“ศาลล่องหน”ของสามหนุ่มสาวสุดป่วนจึงเริ่มต้นขึ้นด้วยความ(ฮา)บรรลัย",
+        releaseDate: "2023-11-10",
+        duration: "120 ",
+      },
+      {
+        id: 26,
+        title: "Inside Out 2",poster: "Piceturemovies/io2_payoff_squish_poster-s_29270ace.jpeg",teaserUrl: "https://www.youtube.com/embed/adiI9BQuMl4",
+        description: "เมื่อไรลีย์อายุ 13 ปีเธอต้องเผชิญกับการเปลี่ยนแปลงทั้งทางร่างกายและจิตใจอารมณ์เดิมอย่างลั้ลลา(Joy),เศร้าซึม(Sadness),ฉุนเฉียว(Anger),กลั๊วกลัว(Fear)และหยะแหยง(Disgust)ต้องปรับตัวเพื่อทำงานร่วมกับอารมณ์ใหม่ที่เข้ามาโดยเฉพาะว้าวุ่นที่มีบทบาทสำคัญในการควบคุมความรู้สึกของไรลีย์การปรากฏตัวของอารมณ์ใหม่เหล่านี้ทำให้เกิดความท้าทายและการผจญภัยครั้งใหม่ภายในจิตใจของเธอ TRUEID ENTERTAINMENTภาพยนตร์นี้ยังคงความสนุกสนานและความลึกซึ้งในการสำรวจอารมณ์และการเติบโตของมนุษย์โดยมีการเพิ่มตัวละครใหม่ที่สะท้อนถึงความซับซ้อนของอารมณ์ในช่วงวัยรุ่น Inside Out 2",
+ 
+        duration: "97 ",
+      },
+      {
+        id: 27,
+        title: "My boo",poster: "Piceturemovies/myboo.jpg",teaserUrl: "https://www.youtube.com/embed/r_Ku3IYSe1w",
+        description: "โจ เกมเมอร์หนุ่มดวงตกได้รับมรดกเป็นบ้านที่มีผีเจ้าของบ้านคนเก่า“อนงค์”แถมมาด้วยแต่คนก็ไม่ยอมหนีผีก็ไม่ยอมไปคนกับผีเลยจับมือกันเปิดบ้านผีสิงให้คนมาเที่ยวเล่นแถมยังได้เห็นความน่ารักของผีบ้านนี้มากขึ้นทุกวันจนเกิดเป็นความรัก",
+
+        duration: "125 ",
+      },
+      {
+        id: 28,
+        title: "Lahn Mah",poster: "Piceturemovies/Lahn Mah.jpg",teaserUrl: "https://www.youtube.com/embed/0fksoEJvdLE",
+        description: "เมื่อหลานกับม่าที่อายุห่างกันกว่า 50 ปีต้องมาอยู่ร่วมกันการต่อปากต่อคําจึงเกิดขึ้นในทุกโมเมนต์แต่มันกลับเป็นช่วงเวลาที่ทําให้อาม่าลืมเหงาจากการเฝ้ารอลูกชายคนโตอย่างกู๋เคี้ยง(ดู๋-สัญญา คุณากร)ลูกสาวคนกลางอย่างแม่ของเอ็ม(เจีย-สฤญรัตน์ โทมัส)และลูกชายคนเล็กอย่างกู๋โส่ย(เผือก-พงศธร จงวิลาส)ที่จะมาพร้อมหน้ากันตามเทศกาลต่างๆเท่านั้นไม่น่าเชื่อว่างานที่เริ่มต้นทําเพราะหวังรวยจะทําให้คนห่วยๆอย่างเอ็มได้รู้ว่าคําว่า“ครอบครัว”มีค่ามากกว่าเงิน",
+        
+        duration: "125 ",
+      },
+      {
+        id: 29,
+        title: "HOME FOR RENT",poster: "Piceturemovies/HOME FOR RENT.jpg",teaserUrl: "https://www.youtube.com/embed/WNLVu7CE6Ok",
+        description: "แรงบันดาลใจจากคดีสะเทือนขวัญสู่ภาพยนตร์เรื่องล่าสุดโดยผู้กำกับ‘ลัดดาแลนด์’เมื่อ‘หนิง’และ‘กวิน’คู่สามีภรรยาที่มีลูกสาววัย7ขวบชื่อ‘อิง’ตัดสินใจย้ายออกจากบ้านไปอาศัยอยู่คอนโดแล้วปล่อยบ้านให้คนแปลกหน้ามาเช่าโดยมีผู้เช่าเป็น‘ราตรี’คุณหมอวัยเกษียณและ‘นุช’ลูกสาววัย40หลังจากปล่อยบ้านให้เช่าได้ไม่นานหนิงก็พบว่ากวินเริ่มมีพฤติกรรมเปลี่ยนไปดูมีความลับชอบหายตัวไปตอนตีสี่แถมยังมีรอยสักเป็นสัญลักษณ์สามเหลี่ยมซึ่งเป็นรอยสักแบบเดียวกันกับที่พวกคนเช่าบ้านมีขณะที่กวินเริ่มแปลกไปหนิงก็เริ่มเห็นว่ามีอันตรายที่มองไม่เห็นตามมารังควานอิงหนิงจึงต้องทำทุกทางเพื่อปกป้องลูกสาวของเธอจากลัทธิประหลาดนี้ให้ได้!‘บ้านเช่า..บูชายัญ’ผลงานเรื่องล่าสุดจากผู้กำกับจิม-โสภณศักดาพิศิษฏ์นำแสดงโดยเวียร์-ศุกลวัฒน์,มิว-นิษฐาและต่าย-เพ็ญพักตร์6เมษาบูชาความหลอนในโรงภาพยนตร์เท่านั้น#บ้านเช่าบูชายัญ#HomeForRent",
+
+        duration: "124 ",
+      },
+      {
+        id: 30,
+        title: "Hormones",poster: "Piceturemovies/Hormones.jpg",teaserUrl: "https://www.youtube.com/embed/9RCRmT6xsYs",
+        description: "       เพราะช่วงชีวิตของวัยรุ่นเป็นช่วงวัยของการเปลี่ยนแปลงครั้งยิ่งใหญ่หลายคนอาจโชคดีได้เจอทางออกและพบแสงสว่างได้เร็วแต่บางคนระหว่างทางอาจเต็มไปด้วยอุปสรรคที่ต้องก้าวผ่านมันไปให้ได้เสาร์นี้ 3 สค.มาร่วมลุ้นกันว่า บรรดานักเรียนโรงเรียน นาดาวบางกอกในละครซีรี่ส์ฮอร์โมนวัยว้าวุ่นค่ายจีทีเอชและนาดาวจะสามารถก้าวผ่านความเปลี่ยนแปลงต่างๆไปได้หรือไม่งานนี้ผู้กำกับคนเก่งย้ง-ทรงยศสุขมากอนันต์ขอจัดเต็มจัดหนักนำเสนอทุกความสัมพันธ์ที่กำลังเข้มข้นสุดๆให้แฟนๆอย่างเต็มอิ่มในตอนที่ 11 ออกซิโทซิน (Oxytocin)ฮอร์โมนแห่งความผูกพัน",
+        duration: "39 + 6 specials",
+      },
+    ];
+// ฟังก์ชันสำหรับปิด modal และหยุดวิดีโอ
+function closeMovieModal() {
+  const modal = document.getElementById('movie-modal');
+  const iframe = document.querySelector('#movie-modal iframe'); // Get the iframe element
+
+  if (iframe) {
+    // หยุดการเล่นวิดีโอโดยการตั้งค่า src เป็นค่าว่าง
+    iframe.src = ''; // This will stop the video
+  }
+
+  modal.style.display = 'none'; // Hide the modal
+}
+
+// ฟังก์ชันสำหรับเปิด modal และเล่นวิดีโอ
+function showMovieDetails(movieId) {
+  const selectedMovie = movies.find(movie => movie.id === movieId);
+  
+  if (selectedMovie) {
+    const modalDetails = document.getElementById('movie-modal-details');
+    modalDetails.innerHTML = `
+      <h2>${selectedMovie.title}</h2>
+      <iframe 
+        width="560" 
+        height="315"
+        src="${selectedMovie.teaserUrl}" 
+        title="${selectedMovie.title} Official Teaser" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+      <p>${selectedMovie.description}</p>
+      <p><strong>Duration:</strong> ${selectedMovie.duration} minutes</p>
+    `;
+    const modal = document.getElementById('movie-modal');
+    modal.style.display = 'block'; // Show modal
+  } else {
+    console.error("Movie not found");
+  }
+}
+
+// ฟังก์ชันตรวจจับการกดปุ่ม ESC เพื่อปิด modal
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') { // เมื่อกดปุ่ม ESC
+    closeMovieModal(); // เรียกฟังก์ชันปิด modal
+  }
+});
+
+
+
+    window.showMovieDetails = showMovieDetails;
+    window.closeMovieModal = closeMovieModal;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </script>
+  </main>
+</section>
+
+
+
+
+<section id="accountPopup" style="display:none;">
+  <div id="vseg-btn" onclick="goBackToMovieSelection()" style="position: absolute; top: 10px; left: 10px; font-size: 24px; font-weight: bold; cursor: pointer;">
+    VSEG
+  </div>
+
+  <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <button id="logout-btn" onclick="logout()">Logout</button>
+  </div>
+  
+  <!-- ข้อมูลบัญชี -->
+  <div id="account-info">
+    <label class="upload-container">
+      <img id="profile-pic" src="Piceturemovies\profile.png" alt="Profile Picture">
+      <input type="file" id="profile-upload" accept="image/*" onchange="uploadProfilePicture(event)">
+      <span class="upload-btn"></span>
+    </label>
+
+    <h2 id="user-name">Loading...</h2>
+    <p id="user-email">Loading...</p>
+  </div>
+
+  <script>
+    // Load the user's data from localStorage and display it
+    function loadUserInfo() {
+      const userId = localStorage.getItem('userId'); // Assuming you store the user ID after login
+
+      if (!userId) {
+        alert('Please log in first.');
+        window.location.href = 'login.html'; // Redirect to login page if not logged in
+        return;
+      }
+
+      // Fetch user data from the backend using the userId
+      fetch(`http://localhost:3000/api/getUserInfo/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            // Display the username and email retrieved from the backend
+            document.getElementById('user-name').innerText = data.user.username;
+            document.getElementById('user-email').innerText = data.user.email;
+          } else {
+            alert('Failed to load user info.');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Call loadUserInfo when the page is loaded
+    window.onload = function() {
+      loadUserInfo();
+    }
+function loadUserInfo() {
+  const username = localStorage.getItem('username');
+  const email = localStorage.getItem('email');
+
+  if (username && email) {
+    // Display the information stored in localStorage
+    document.getElementById('user-name').innerText = username;
+    document.getElementById('user-email').innerText = email;
+  } else {
+    // Handle case when user info is not available in localStorage
+    console.log('User information not found.');
+  }
+}
+    
+
+
+
+// ฟังก์ชันสำหรับการล็อกอิน
+document.getElementById('login-form').addEventListener('submit', function(event) {
+event.preventDefault();
+
+const username = document.getElementById('login-username').value;
+const password = document.getElementById('login-password').value;
+
+fetch('http://localhost:3000/login', {
+method: 'POST',
+headers: {
+  'Content-Type': 'application/json'
+},
+body: JSON.stringify({ username, password })
+})
+.then(response => response.json())
+.then(data => {
+if (data.status === 'success') {
+  // เก็บข้อมูลผู้ใช้ลงใน localStorage
+  localStorage.setItem('username', username);
+  localStorage.setItem('email', data.email);  // สมมุติว่า email ถูกส่งกลับจากฐานข้อมูล
+
+  alert('Login successful');
+  window.location.href = "account.html";  // หรือเปลี่ยนเป็นหน้า account ของคุณ
+} else {
+  alert('Invalid credentials');
+}
+})
+.catch(error => console.error('Error:', error));
+});
+
+    // เรียกใช้ฟังก์ชันเพื่อแสดงข้อมูลเมื่อหน้าโหลดเสร็จ
+    loadUserInfo();
+
+    // ฟังก์ชันสำหรับอัปโหลดและแสดงรูปโปรไฟล์
+    function uploadProfilePicture(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profile-pic').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // ฟังก์ชันออกจากระบบ
+    function logout() {
+      alert('You have been logged out.');
+      window.location.href = "index.html";  // Redirect to login page
+    }
+  </script>
+
+
+  <!-- ส่วนแสดงประวัติการจองตั๋ว -->
+  <div id="booking-history" style="text-align: center; margin-top: 30px;">
+    <h3>Booking History</h3>
+    <table style="margin: 0 auto; border-collapse: collapse; width: 80%; max-width: 600px;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Movie</th>
+          <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Seats</th>
+          <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Time</th>
+          <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Date</th>
+        </tr>
+      </thead>
+      <tbody id="booking-history-list">
+        <!-- ประวัติการจองจะถูกแสดงที่นี่ -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+
+
+    // ฟังก์ชันเพื่อแสดงประวัติการจอง
+
+
+    // ฟังก์ชันสำหรับแสดงข้อมูลการจองในหน้าบัญชี
+    function loadBookingHistory() {
+  const userId = localStorage.getItem('userId'); // Get userId from localStorage
+
+  if (!userId) {
+    alert('Please log in to view booking history.');
+    return; // Exit if no userId exists
+  }
+
+  // Use fetch() to get the user's booking history from the API
+  fetch(`http://localhost:3000/api/getBookingHistory/${userId}`)  // Pass userId to the API
+    .then(response => response.json())
+    .then(data => {
+      const historyList = document.getElementById('booking-history-list');
+      historyList.innerHTML = ''; // Clear previous data
+
+      if (data.status === 'success' && data.data.length > 0) {
+        // If there are bookings, display them
+        data.data.forEach(booking => {
+          const row = document.createElement('tr');
+          
+          // Format the date to a user-friendly format
+          const formattedDate = new Date(booking.date).toLocaleDateString('th-TH', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+          });
+
+          row.innerHTML = `
+            <td style="border: 1px solid #ddd; padding: 8px;">${booking.movie_name}</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">${booking.seats}</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">${booking.time}</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">${formattedDate}</td>
+          `;
+          historyList.appendChild(row);
+        });
+      } else {
+        // If no bookings found
+        historyList.innerHTML = '<tr><td colspan="4" style="text-align: center;">No booking history found</td></tr>';
+      }
+    })
+    .catch(error => console.error('Error fetching booking history:', error));
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  loadBookingHistory();
+});
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  loadBookingHistory();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+// ตรวจสอบว่ามีการจองหรือไม่
+if (localStorage.getItem('bookingComplete') === 'true') {
+const movieName = localStorage.getItem('selectedMovie');
+const bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || {};
+const seats = bookedSeats[movieName] || [];
+const selectedTime = localStorage.getItem('selectedTime');
+const currentDate = new Date().toLocaleDateString();
+
+// ทำการแสดงข้อมูลการจองทันทีที่หน้าโหลด
+updateBookingInfo(movieName, seats.join(', '), selectedTime, currentDate);
+}
+});
+
+
+// ฟังก์ชันสำหรับบันทึกข้อมูลการจองเมื่อทำการจองสำเร็จ
+function saveBooking(movieName, seats, time, date) {
+const bookingHistory = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+bookingHistory.push({ movieName, seats, time, date });
+localStorage.setItem('bookingHistory', JSON.stringify(bookingHistory));
+}
+localStorage.setItem('bookingComplete', true);
+    // เรียกฟังก์ชันเมื่อหน้าโหลดเสร็จ
+
+
+
+// ฟังก์ชันดึงประวัติการจองจาก API
+
+
+// เรียกใช้ฟังก์ชันเมื่อหน้าโหลด
+window.onload = function() {
+  loadUserInfo();
+  loadBookingHistory();
+};
+
+
+    // ฟังก์ชันสำหรับอัปโหลดและแสดงรูปโปรไฟล์
+    function uploadProfilePicture(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profile-pic').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+
+
+
+</head>
+<body>
+</section>
+</body>
+</html>

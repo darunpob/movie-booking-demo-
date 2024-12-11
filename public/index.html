@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* จัดให้อยู่ตรงกลาง */
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Login to Movie Ticket Booking</h1>
+  </header>
+
+  <main>
+    <section id="login-register-container">
+      <!-- หน้า Login -->
+      <div id="login-form">
+        <h2>Login</h2>
+        <form onsubmit="return loginUser(event)">
+          <div class="form-group">
+            <label for="login-username">User:</label>
+            <input type="text" id="login-username" name="login-username" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
+          </div>
+          <button type="submit">Login</button>
+          <p>Don't have an account? <a href="javascript:void(0)" onclick="showRegister()">Register</a></p>
+        </form>
+      </div>
+
+      <!-- หน้า Register -->
+      <div id="register-form" style="display: none;">
+        <h2>Register</h2>
+        <form onsubmit="return registerUser(event)">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+          </div>
+          <button type="submit">Register</button>
+          <p>Already have an account? <a href="javascript:void(0)" onclick="showLogin()">Login</a></p>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      // ฟังก์ชันสำหรับการล็อกอิน
+      function loginUser(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        const storedUsername = localStorage.getItem('username');
+        const storedPassword = localStorage.getItem('password');
+        fetch('http://localhost:3000/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            const userId = "123"; // ตัวอย่าง userId คุณสามารถดึงจากฐานข้อมูลหรือ API
+    localStorage.setItem('userId', userId);  // เก็บ userId ลงใน localStorage
+            alert('Login successful');
+            localStorage.setItem('userId', data.user.id);
+            localStorage.setItem('username', data.user.username);
+            window.location.href = 'movie-selection.html'; // เปลี่ยนไปหน้าเลือกหนัง
+          } else {
+            alert('Invalid credentials');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      }
+
+      // ฟังก์ชันสำหรับการสมัครสมาชิก
+      function registerUser(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (password !== confirmPassword) {
+          alert('Passwords do not match');
+          return;
+        }
+
+        fetch('http://localhost:3000/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            alert('Registration successful');
+            showLogin(); // กลับไปที่หน้า Login
+          } else {
+            alert('Error: ' + data.message);
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      }
+
+      // ฟังก์ชันเปลี่ยนไปหน้า Register
+      function showRegister() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = 'block';
+      }
+
+      // ฟังก์ชันเปลี่ยนไปหน้า Login
+      function showLogin() {
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('register-form').style.display = 'none';
+      }
+    </script>
+  </main>
+</body>
+</html>

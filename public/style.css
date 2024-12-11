@@ -1,0 +1,720 @@
+/* กำหนดกรอบและการจัดการกับขนาดภาพ */
+.movie-img {
+    width: 100%; /* ให้ภาพมีความกว้างเต็มที่ของกรอบ */
+    height: 300px; /* กำหนดความสูงตามที่ต้องการ */
+    object-fit: cover; /* ใช้ cover เพื่อให้ภาพไม่ยืดหรือล้นกรอบ */
+    border-radius: 8px; /* เพิ่มความมนให้กรอบภาพ */
+    display: block;
+    margin: 0 auto; /* จัดกลางภาพ */
+  }
+  
+  /* กรอบภาพยนตร์ */
+  .movie {
+    width: 100%; /* ให้กรอบเต็มความกว้างของหน้าจอ */
+    max-width: 250px; /* กำหนดขนาดสูงสุดเพื่อไม่ให้กรอบใหญ่เกินไป */
+    margin: 20px;
+    text-align: center; /* จัดข้อความและปุ่มอยู่กลาง */
+    display: inline-block;
+  }
+  #vseg-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: #000000; /* สีพื้นหลังเมื่อไม่ชี้เมาส์ */
+    padding: 10px;
+    border-radius: a5px;
+    border: 2px solid #000000;
+    transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition ให้การเปลี่ยนแปลงราบรื่น */
+  }
+  
+  #vseg-btn:hover {
+    background-color: #000000; /* สีพื้นหลังเมื่อชี้เมาส์ */
+    color: #ffffff; /* เปลี่ยนสีข้อความให้เข้มขึ้นเมื่อชี้เมาส์ */
+  }
+  
+  #vseg-btn:active {
+    background-color: #000000; /* สีพื้นหลังเมื่อคลิก */
+  }
+  
+  
+  /* Popup background */
+  .popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  }
+  
+  /* Popup content */
+  .popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Close button */
+  .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+  }
+  
+  
+  /* ปุ่มเลือกภาพยนตร์ */
+  .select-btn {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .select-btn:hover {
+    background-color: #a8a8a8;
+  }
+  /* จัดเรียงภาพยนตร์ในรูปแบบกริด */
+  #movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* กำหนดให้แต่ละกรอบมีความกว้างขั้นต่ำ 200px */
+    gap: 20px; /* เว้นระยะห่างระหว่างกรอบภาพยนตร์ */
+    padding: 20px;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    font-size: 24px;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #a8a8a8;
+  }
+  
+  a {
+    color: #ff0000;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  /* ทำให้ปุ่มเวลามาอยู่ในบรรทัดเดียว */
+  #time-selection .time-btns {
+  display: flex;
+  justify-content: center;
+  gap: 6px; /* ระยะห่างระหว่างปุ่ม */
+  margin-top: 2px;
+  }
+  
+  /* สไตล์ของปุ่มเวลาที่เลือก */
+  .time-btn {
+  font-size: 10px;
+  padding: 2px 4px;
+  cursor: pointer;
+  background-color: #ff0000; /* สีแดงพื้นฐาน */
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  }
+  
+  /* เปลี่ยนสีเมื่อ hover */
+  .time-btn:hover {
+  background-color: #cc0000; /* สีแดงเข้มเมื่อ hover */
+  }
+  
+  /* สไตล์ปุ่มเมื่อเลือก */
+  .time-btn.selected {
+  background-color: #990000; /* สีแดงเข้มเมื่อถูกเลือก */
+  color: white;
+  }
+  
+  /* ป้องกันสีฟ้าในกรณีของ focus หรือ active */
+  .time-btn:focus,
+  .time-btn:active {
+  background-color: #ff0000 !important;
+  color: white !important;
+  }
+  
+  
+  /* ปุ่ม 'เลือกที่นั่ง' */
+  #next-btn {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  #next-btn:hover {
+  background-color: #0056b3;
+  }
+  /* สไตล์สำหรับแผนผังที่นั่ง */
+  /* สไตล์ของที่นั่ง */
+  .seat {
+  width: 40px;
+  height: 40px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  /* สีที่นั่งเมื่อเลือก */
+  .seat.selected {
+  background-color: #b3d8ff !important;  /* ใช้ !important เพื่อให้แน่ใจว่าถูกใช้งาน */
+  color: #9bcbff !important;  /* ใช้ !important เพื่อให้แน่ใจว่าถูกใช้งาน */
+  }
+  
+  /* เมื่อ hover บนที่นั่ง */
+  .seat:hover {
+  background-color: #e0e0e0;
+  }
+  
+  /* เมื่อกดที่นั่ง */
+  .seat:active {
+  background-color: #ccc;
+  }
+  
+  
+  
+  #movie-time-selection {
+  padding-top: 5px;
+  }
+  
+  .time-btn {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  }
+  
+  .seat {
+  margin: 5px;
+  padding: 10px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  }
+  
+  
+  .row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  }
+  
+  #confirm-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  /* เพิ่มสไตล์ให้ข้อความ "หน้าจอ" อยู่ตรงกลางบนสุด */
+  .screen-indicator {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-align: center; /* ให้ข้อความอยู่ตรงกลาง */
+  margin-bottom: 30px; /* ระยะห่างระหว่างข้อความและที่นั่ง */
+  margin-top: 100px; 
+  }
+  
+  
+  
+  
+  
+  
+  /* สไตล์ของรายละเอียดหนัง */
+  #movie-details {
+  text-align: center;
+  margin-bottom: 20px;
+  }
+  
+  #movie-title {
+  font-size: 24px;
+  font-weight: bold;
+  }
+  
+  #movie-description {
+  font-size: 16px;
+  color: #555;
+  }
+  
+  .movie-img {
+  width: 100%;
+  height: 300px; /* กำหนดความสูงของภาพให้เท่ากัน */
+  object-fit: cover; /* ทำให้ภาพครอบคลุมพื้นที่โดยไม่ให้ภาพยืดเบี้ยว */
+  border-radius: 8px;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+  
+  
+  /* กรอบภาพยนตร์ */
+  .movie {
+  width: 100%;
+  max-width: 250px;
+  margin: 20px;
+  text-align: center;
+  display: inline-block;
+  }
+  
+  #movie-details {
+  text-align: center;
+  margin-bottom: 20px;
+  }
+  
+  #movie-title {
+  font-size: 24px;
+  font-weight: bold;
+  }
+  
+  #movie-description {
+  font-size: 16px;
+  color: #555;
+  }
+  
+  #seat-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  }
+  
+  .seat {
+  width: 40px;
+  height: 40px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  }
+  
+  .seat.selected {
+  background-color: #b3d8ff;
+  color: #9bcbff;
+  }
+  
+  .seat:hover {
+  background-color: #e0e0e0;
+  }
+  
+  button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  button:hover {
+  background-color: #0056b3;
+  }
+  
+  
+  
+  
+  
+  
+  html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  }
+  
+  
+  
+  
+  /* จัดหน้า Booking Information ให้อยู่กลาง */
+  #confirmation {
+  display: flex;               /* ใช้ Flexbox */
+  justify-content: center;     /* จัดกลางในแนวนอน */
+  align-items: center;         /* จัดกลางในแนวตั้ง */
+  height: 100%;               /* ใช้ความสูงเต็มหน้าจอ */
+  text-align: center;          /* จัดข้อความให้อยู่ตรงกลาง */
+  background-color: #f4f4f4;   /* เพิ่มสีพื้นหลัง */
+  margin: 0;                   /* ลบ Margin */
+  padding: 0;                  /* ลบ Padding */
+  box-sizing: border-box;      /* ทำให้ Padding ไม่เพิ่มขนาด */
+  }
+  
+  
+  
+  h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  }
+  
+  p {
+  font-size: 16px;
+  margin: 10px 0;
+  }
+  
+  button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  button:hover {
+  background-color: #0056b3;
+  }
+  
+  /* Popup Background */
+  .popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  }
+  
+  /* Popup Content */
+  .popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  }
+  
+  /* Close Button */
+  .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+  }
+  
+  
+  .popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .popup-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  text-align: center;
+  }
+  
+  .close-btn {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: red;
+  }
+  
+  
+  .movie {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  }
+  
+  .movie-img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  }
+  
+  .zoom-icon {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  cursor: pointer;
+  display: none; /* ซ่อนแว่นขยาย */
+  }
+  
+  .zoom-icon img {
+  width: 30px;
+  height: 30px;
+  }
+  
+  .movie:hover .zoom-icon {
+  display: block; /* แสดงแว่นขยายเมื่อผู้ใช้วางเมาส์ */
+  }
+  
+  
+  .modal-content .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #000000; /* สีเขียว */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  }
+  
+  .modal-content .btn:hover {
+  background-color: #000000; /* สีเขียวเข้มเมื่อเอาเมาส์ชี้ */
+  }
+  
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* สีพื้นหลังโปร่งใส */
+    display: flex;
+    justify-content: center; /* จัดตำแหน่งในแนวนอน */
+    align-items: center;     /* จัดตำแหน่งในแนวตั้ง */
+    z-index: 2000;           /* ให้ modal อยู่ด้านบนสุด */
+    overflow: auto;
+  }
+  
+  .modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;  /* ขนาดสูงสุดของกรอบ */
+    width: 90%;        /* ความกว้าง 90% ของหน้าจอ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute; /* ใช้ absolute เพื่อให้กรอบแสดงผลตรงกลาง */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ปรับให้กรอบอยู่กลางหน้าจอ */
+    text-align: center; /* ทำให้ข้อความอยู่กลาง */
+    overflow-y: auto;
+    max-height: 90vh;   /* ไม่ให้ความสูงเกิน 90% ของหน้าจอ */
+  }
+
+
+  #back-to-movie-selection-btn {
+    font-size: 18px; /* ขนาดตัวอักษร */
+
+    width: 280px; /* กำหนดความกว้างของปุ่ม */
+    height: 40px; /* กำหนดความสูงของปุ่ม */
+    background-color: #000000;; /* สีพื้นหลัง */
+    color: white; /* สีตัวอักษร */
+    border: none; /* ลบเส้นขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+  }
+  
+  /* การเปลี่ยนสีเมื่อเอาเมาส์ไปวางที่ปุ่ม */
+  #back-to-movie-selection-btn:hover {
+    background-color: #000000;
+  }
+
+/* ทำให้รูปโปรไฟล์และปุ่มอัปโหลดดูดีขึ้น */
+#account-info {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  #profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  #profile-upload {
+    display: none;
+  }
+
+  #logout-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  #logout-btn:hover {
+    background-color: #45a049;
+  }
+
+  #back-to-movie-selection-btn {
+    font-size: 18px; /* ขนาดตัวอักษร */
+
+    width: 280px; /* กำหนดความกว้างของปุ่ม */
+    height: 40px; /* กำหนดความสูงของปุ่ม */
+    background-color: #000000;; /* สีพื้นหลัง */
+    color: white; /* สีตัวอักษร */
+    border: none; /* ลบเส้นขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+  }
+  
+  /* การเปลี่ยนสีเมื่อเอาเมาส์ไปวางที่ปุ่ม */
+  #back-to-movie-selection-btn:hover {
+    background-color: #000000;
+  }
+
+  #back-to-movie-selection-btn {
+    font-size: 18px; /* ขนาดตัวอักษร */
+
+    width: 280px; /* กำหนดความกว้างของปุ่ม */
+    height: 40px; /* กำหนดความสูงของปุ่ม */
+    background-color: #000000;; /* สีพื้นหลัง */
+    color: white; /* สีตัวอักษร */
+    border: none; /* ลบเส้นขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+  }
+  
+  /* การเปลี่ยนสีเมื่อเอาเมาส์ไปวางที่ปุ่ม */
+  #back-to-movie-selection-btn:hover {
+    background-color: #000000;
+  }
+
+   /* ทำให้รูปโปรไฟล์และปุ่มอัปโหลดดูดีขึ้น */
+   #account-info {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  #profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  #profile-upload {
+    display: none;
+  }
+
+  #logout-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  #logout-btn:hover {
+    background-color: #45a049;
+  }
